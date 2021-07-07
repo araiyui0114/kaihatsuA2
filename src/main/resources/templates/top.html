@@ -23,12 +23,12 @@
 		<td rowspan="2" th:text="${ToDo.rank}"></td>
 		<td rowspan="2">
 		<form action="/delete" method="post">
-        <input type="hidden" name="code" th:value="${ToDo.code}">
+        <input type="hidden" name="code" th:value="${code}">
         <input type="submit" value="削除"></form>
         </td>
 	</tr>
 
-	<tr>
+	<tr th:each="ToDo:${todoList}">
 	<td th:text="${ToDo.date}"></td>
 	</tr>
 
@@ -39,7 +39,7 @@
 <input type="text" name="goal">P
 
 <form action="/allDelete" method="post">
-<input type="hidden" name="code" th:value="${ToDo.code}">
+<input type="hidden" name="code" th:value="${code}">
 <input type="submit" value="全削除"></form>
 </body>
 </html>
