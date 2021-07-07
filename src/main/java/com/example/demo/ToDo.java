@@ -40,6 +40,14 @@ public class ToDo {
 
 			}
 
+			public ToDo(String contents, String date, Integer rank, Integer color) {
+				super();
+				this.contents = contents;
+				this.date = date;
+				this.rank = rank;
+				this.color = color;
+			}
+
 			public ToDo(String contents, String date, Integer id, Integer rank, Integer color) {
 				super();
 				this.contents = contents;
