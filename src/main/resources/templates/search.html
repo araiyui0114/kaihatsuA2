@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>検索画面</title>
+</head>
+<body>
+<h1>検索画面</h1>
+
+<span th:replace="menu"></span>
+
+<form action="/signup" method="post">
+<p>
+ToDo
+<input type="text" name="contents">
+</p>
+
+<p>
+種類
+<!-- <input type="text" name="type"> -->
+</p>
+
+<p>
+期日
+<input type="text" name="date">
+</p>
+
+<p>
+優先順位
+<select name="rank">
+<option value="1">高
+<option value="2">中
+<option value="3">低
+</select>
+</p>
+
+<p>
+テキストの色
+<select name="color">
+<option value="1">赤
+<option value="2">青
+<option value="3">黄
+</select>
+</p>
+
+
+目標に追加
+<!-- <input type="checkbox" name="" value=""> -->
+
+<input type="submit" value="検索"></form>
+</body>
+</html>
