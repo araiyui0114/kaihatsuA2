@@ -57,6 +57,15 @@ public class ToDo {
 				this.color = color;
 			}
 
+			public ToDo(Integer code, String contents, String date, Integer rank, Integer color) {
+				super();
+				this.code = code;
+				this.contents = contents;
+				this.date = date;
+				this.rank = rank;
+				this.color = color;
+			}
+
 			public ToDo(Integer code, String contents, String date, Integer id, Integer rank, Integer color) {
 				super();
 				this.code = code;
