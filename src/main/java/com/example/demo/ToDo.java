@@ -126,4 +126,33 @@ public class ToDo {
 				this.color = color;
 			}
 
+			//カラーコードへの変換
+			public String getColorCode() {
+				String colorCode = " ";
+
+				if( color == 1) {
+					colorCode = "#ff0000";
+				}else if(color == 2) {
+					colorCode = "#0000ff";
+				}else if(color == 3) {
+					colorCode = "#ffff00";
+				}
+				return colorCode;
+			}
+
+			//優先順位への変換
+			public String getRankText() {
+				String rankText = " ";
+
+				if( rank == 1) {
+					rankText = "高";
+				}else if( rank == 2) {
+					rankText = "中";
+				}else if( rank == 3) {
+					rankText = "低";
+				}
+				return rankText;
+			}
+
+
 }

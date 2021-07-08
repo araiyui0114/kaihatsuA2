@@ -15,15 +15,15 @@
 	</h3>
 
 	<h3>
-		～目標～<br><input type="text" name="goal"><br>
+		～目標～<br><span th:style="|color: ${colorCode}|"th:text="${session.setGoal}"></span><br>
 	</h3>
 
 	<table>
 		<span th:each="ToDo:${todoList}">
 		<tr>
 			<th rowspan="2"><input type="checkbox" name="checkbox" value="check"></th>
-			<td th:text="${ToDo.contents}"></td>
-			<td rowspan="2" th:text="${ToDo.rank}"></td>
+			<td th:style="|color: ${ToDo.colorCode}|"th:text="${ToDo.contents}"></td>
+			<td rowspan="2" th:text="${ToDo.rankText}"></td>
 			<td rowspan="2">
 				<div>
 					<form action="/delete" method="get">
@@ -40,7 +40,7 @@
 		</span>
 	</table>
 
-	所持ポイント<input type="text" name="goal">P<br><br>
+	所持ポイント<input type="text">P<br><br>
 
 	<div>
 		<form action="/allDelete" method="post">

@@ -37,6 +37,8 @@ public class ToDoController {
 		return mv;
 	}
 
+	//カラーリストの表示
+
 	//新規登録
 		@RequestMapping(value = "/todo/new" )
 		public ModelAndView newToDo(ModelAndView mv) {
@@ -50,6 +52,8 @@ public class ToDoController {
 				@RequestParam("date")String date,
 				@RequestParam("rank")int rank,
 				@RequestParam("color")int color,
+				//複数項目の取り出し
+				@RequestParam(name= "goal", required=false)String[] goal,
 				ModelAndView mv) {
 
 			//登録するToDoエンティティのインスタンスを生成
@@ -66,11 +70,25 @@ public class ToDoController {
 
 			top(mv);
 
+			//目標の設定
+			String setGoal = "";
+
+			if(goal == null) {
+				setGoal = "";
+			}else {
+				setGoal = contents;
+
+				session.setAttribute("setGoal", setGoal);
+			}
+			session.getAttribute(setGoal);
+
+			mv.addObject("setGoal",setGoal);
+
 			mv.addObject("CODE",code);
 
 			mv.setViewName("top");
 
-				return mv;
+			return mv;
 		}
 
 
@@ -101,20 +119,39 @@ public class ToDoController {
 				@RequestParam("date")String date,
 				@RequestParam("rank")int rank,
 				@RequestParam("color")int color,
+				//複数項目の取り出し
+				@RequestParam(name= "goal", required=false)String[] goal,
 				ModelAndView mv) {
 
-			//登録するUserエンティティのインスタンスを生成
+			//登録するToDoエンティティのインスタンスを生成
 					ToDo todo = new ToDo(code,contents,date,rank,color);
 
-					//ProductエンティティをProductsテーブルに登録
+//					String colorcode = null;
+
+					//ToDoエンティティをToDoテーブルに登録
 					todoRepository.saveAndFlush(todo);
 
 					top(mv);
 
+					//目標の設定
+					String setGoal = "";
 
-			mv.setViewName("top");
-			return mv;
-		}
+					if(goal == null) {
+						setGoal = "";
+					}else {
+						setGoal = contents;
+						//目標をセッションに追加
+						session.setAttribute("setGoal", setGoal);
+					}
+
+					session.getAttribute(setGoal);
+
+					mv.addObject("setGoal",setGoal);
+
+					mv.setViewName("top");
+
+					return mv;
+				}
 
 		//削除
 		@RequestMapping(value = "/delete")
