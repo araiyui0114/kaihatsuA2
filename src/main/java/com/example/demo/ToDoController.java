@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-//テストプル
-
 @Controller
 public class ToDoController {
 
@@ -120,7 +118,7 @@ public class ToDoController {
 
 		//削除
 		@RequestMapping(value = "/delete")
-		public ModelAndView deleteUser(
+		public ModelAndView delete(
 				@RequestParam("code")int code,
 				ModelAndView mv) {
 
@@ -131,6 +129,39 @@ public class ToDoController {
 			mv.setViewName("top");
 			return mv;
 		}
+
+//		//全件削除
+//		@RequestMapping(value = "/allDelete")
+//		public ModelAndView delete(ModelAndView mv) {
+//
+//			todoRepository.delete(ToDo entity);
+//
+//			top(mv);
+//
+//			mv.setViewName("top");
+//			return mv;
+//		}
+
+//		//リスト削除
+//				@RequestMapping(value = "/listDelete")
+//				public ModelAndView listDelete(
+//						@RequestParam("color")int color,
+//						ModelAndView mv) {
+//
+//					//取得したカラーのリストを抽出
+//					List<ToDo> todoList = null;
+//					todoList = todoRepository.findByColor(color);
+//
+//					//
+//					todoRepository.deleteByToDoList(todoList);
+//
+//					top(mv);
+//
+//					mv.setViewName("top");
+//					return mv;
+//				}
+
+
 
 		//検索
 
@@ -151,21 +182,54 @@ public class ToDoController {
 
 			List<ToDo> todoList = null;
 
-			if (contents.equals("") && date.equals("")) {
+			//全件検索
+			if (contents.equals("") && date.equals("") && rank == 0 && color == 0) {
 				todoList = todoRepository.findAll();
+			//contentsあいまい検索
+			}else if(!(contents.equals("")) && date.equals("") && rank == 0 && color == 0) {
+				todoList = todoRepository.findByContentsLike("%" + contents + "%");
+			//dateあいまい検索
+			}else if(contents.equals("") && !(date.equals("")) && rank == 0 && color == 0) {
+				todoList = todoRepository.findByDateLike("%" + date + "%");
+			//rank検索
+			}else if(contents.equals("") && date.equals("") && rank != 0 && color == 0) {
+				todoList = todoRepository.findByRank(rank);
+			//color検索
+			}else if(contents.equals("") && date.equals("") && rank == 0 && color != 0) {
+				todoList = todoRepository.findByColor(color);
+			//contents,dateのあいまい検索
+			}else if(!(contents.equals("")) && !(date.equals("")) && rank == 0 && color == 0) {
+				todoList = todoRepository.findByContentsLikeAndDateLike("%" + contents + "%","%" + date + "%");
+			//contents,date,rankのあいまい検索
+			}else if(!(contents.equals("")) && !(date.equals("")) && rank != 0 && color == 0) {
+				todoList = todoRepository.findByContentsLikeAndDateLikeAndRank("%" + contents + "%","%" + date + "%",rank);
+			//contents,date,rank,colorのあいまい検索
+			}else if(!(contents.equals("")) && !(date.equals("")) && rank != 0 && color != 0) {
+				todoList = todoRepository.findByContentsLikeAndDateLikeAndRankAndColor("%" + contents + "%","%" + date + "%",rank,color);
+			//date,rank,colorのあいまい検索
+			}else if(contents.equals("") && !(date.equals("")) && rank != 0 && color != 0) {
+				todoList = todoRepository.findByDateLikeAndRankAndColor("%" + date + "%",rank,color);
+			//date,rankのあいまい検索
+			}else if(contents.equals("") && !(date.equals("")) && rank != 0 && color == 0) {
+				todoList = todoRepository.findByDateLikeAndColor("%" + date + "%",rank);
+			//date,colorのあいまい検索
+			}else if(contents.equals("") && !(date.equals("")) && rank == 0 && color != 0) {
+				todoList = todoRepository.findByDateLikeAndColor("%" + date + "%",color);
+			//contents,date,rank,colorのあいまい検索
+			}else if(contents.equals("") && date.equals("") && rank != 0 && color != 0) {
+				todoList = todoRepository.findByRankAndColor(rank,color);
+			//contents,colorのあいまい検索
+			}else if(!(contents.equals("")) && date.equals("") && rank == 0 && color != 0) {
+				todoList = todoRepository.findByContentsLikeAndColor("%" + contents + "%",color);
+			//contents,date,rank,colorのあいまい検索
+			}else if(!(contents.equals("")) && date.equals("") && rank != 0 && color != 0) {
+				todoList = todoRepository.findByContentsLikeAndRankAndColor("%" + contents + "%",rank,color);
 			}
 
+			//検索を結果リストに
 			mv.addObject("todoList", todoList);
-
-//			mv.addObject("contents",contents);
-//			mv.addObject("date",date);
-//			mv.addObject("rank",rank);
-//			mv.addObject("color",color);
-
 
 			mv.setViewName("searchResult");
 			return mv;
 		}
-		///追加
-
 }
