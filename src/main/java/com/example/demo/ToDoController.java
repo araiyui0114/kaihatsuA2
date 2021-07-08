@@ -38,6 +38,22 @@ public class ToDoController {
 	}
 
 	//カラーリストの表示
+	@RequestMapping("/colorList")
+		public ModelAndView colorList(
+				@RequestParam("red")int color,
+				ModelAndView mv) {
+
+		//DBからリストを取得
+		List<ToDo> todoList = todoRepository.findByColor(color);
+
+		//Thymeleafに設定
+		mv.addObject("todoList", todoList);
+
+		//top.htmlに設定
+		mv.setViewName("top");
+
+		return mv;
+	}
 
 	//新規登録
 		@RequestMapping(value = "/todo/new" )
