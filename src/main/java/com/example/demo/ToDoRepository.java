@@ -42,8 +42,8 @@ public interface ToDoRepository extends JpaRepository<ToDo, Integer>{
 	//contents,rank,colorのあいまい検索
 	List<ToDo> findByContentsLikeAndRankAndColor( String contents, int rank, int color);
 
-	//リストの削除
-	List<ToDo> deleteByToDoList();
+//	//リストの削除
+//	List<ToDo> deleteByToDoList();
 
 }
 
