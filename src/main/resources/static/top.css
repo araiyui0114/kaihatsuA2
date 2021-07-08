@@ -40,7 +40,7 @@ table{/*テーブル、リスト*/
   border-spacing: 100;
 }
 
-table th{/*テーブルのチェックボックス*/
+table th{/*テーブルnoチェックボックス*/
   border-bottom: solid 2px #fb5144;/*下線の色*/
   padding: 10px 0;
 }
