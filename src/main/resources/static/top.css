@@ -1,1 +1,81 @@
 @charset "UTF-8";
+
+body {/*全体*/
+	text-align: center; /*テキストを中央へ*/
+}
+
+h1 { /*見出し*/
+	color: rosybrown;/*色*/
+	margin: 50px 1000px 50px 200px;/*余白、場所*/
+}
+h1 {/*見出し*/
+  position: relative;
+  padding-left: 25px;
+}
+
+h1:before {/*見出し*/
+  position: absolute;
+  content: '';
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border: none;
+  border-left: solid 15px transparent;
+  border-bottom: solid 15px rgb(119, 195, 223);
+}
+
+h1:after {/*見出し*/
+  position: absolute;
+  content: '';
+  bottom: -3px;
+  left: 10px;
+  width: 100%;
+  border-bottom: solid 3px rgb(119, 195, 223);
+}
+
+
+table{/*テーブル、リスト*/
+  width: 100%;
+  border-spacing: 100;
+}
+
+table th{/*テーブルのチェックボックス*/
+  border-bottom: solid 2px #fb5144;/*下線の色*/
+  padding: 10px 0;
+}
+
+table td{/*内容、優先順位、削除*/
+  border-bottom: solid 2px #ddd;/*下線の色*/
+  text-align: center;
+  padding: 10px 0;
+}
+
+div { /*削除ボタン*/
+	display: inline-block;
+	padding: 0.5em 1em;
+	text-decoration: none;
+	background: #cd5c5c; /*ボタン色*/
+	color: #FFF;
+	border-bottom: solid 4px #627295;
+	border-radius: 3px;
+}
+
+div:active { /*削除ボタンを押したとき*/
+	-webkit-transform: translateY(4px);
+	transform: translateY(4px); /*下に動く*/
+	box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2); /*影を小さく*/
+	border-bottom: none;
+}
+
+a { /*メニューバー*/
+  padding: 1.0em 1.0em;/*文字の上下 左右の余白*/
+  color: #494949;/*文字色*/
+  background: #f4f4f4;/*背景色*/
+  border-left: solid 5px #7db4e6;/*左線*/
+  border-bottom: solid 3px #d7d7d7;/*下線*/
+}
+
+a:hover{ /*メニューバー*/
+	color:red; /*カーソルが当たると赤くなる*/
+}

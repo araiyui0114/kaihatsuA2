@@ -3,27 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <title>登録画面</title>
-<style>
-body{background:whitesmoke;
-     text-align: center;
-}
-h1{color:rosybrown}
-
-p{
-     font-size: 15px;
-     text-align: center;
-     margin:50px 500px 50px 600px
-    }
-
-</style>
-
+<link th:href="@{/top.css}" rel="stylesheet">
 </head>
 <body>
 <h1>登録画面</h1>
 
-<span th:replace="menu"></span>
+<span th:replace="menu"></span><br><br>
 
+<h3>
 <form action="/todo/new" method="post">
+
 <p>
 ToDo
 <input type="text" name="contents">
@@ -34,6 +23,7 @@ ToDo
  <input type="text" name="type">
 </p>
 -->
+
 <p>
 期日
 <input type="text" name="date">
@@ -57,10 +47,11 @@ ToDo
 </select>
 </p>
 
-
 目標に追加
 <!-- <input type="checkbox" name="" value=""> -->
-<br>
-<input type="submit" value="登録"></form>
+<br><br><br>
+<div><input type="submit" value="登録"></div>
+</form>
+</h3>
 </body>
 </html>
