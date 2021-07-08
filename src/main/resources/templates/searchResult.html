@@ -3,33 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <title>検索結果画面</title>
+<link th:href="@{/top.css}" rel="stylesheet">
 </head>
 <body>
+<header>
 <h1>検索結果画面</h1>
+<span th:replace="menu"></span><br><br>
 
-<span th:replace="menu"></span>
-
-<table border="1">
+</header>
+<h3>
+<table>
 
 	<tr th:each="ToDo:${todoList}">
-	    <td rowspan="2"><input type="checkbox" name="checkbox" value="check"></td>
+	    <th rowspan="2"><input type="checkbox" name="checkbox" value="check"></th>
 		<td th:text="${ToDo.contents}"></td>
-		<td rowspan="2" th:text="${ToDo.rank}"></td>
-		<td rowspan="2">
+		<th rowspan="2" th:text="${ToDo.rank}"></th>
+		<th rowspan="2">
 		<form action="/delete" method="post">
         <input type="hidden" name="code" th:value="${ToDo.code}">
-        <input type="submit" value="削除"></form>
-        </td>
+       <div> <input type="submit" value="削除"></div></form>
+        </th>
 	</tr>
 
 	<tr th:each="ToDo:${todoList}">
-	<td th:text="${ToDo.date}"></td>
+	<th th:text="${ToDo.date}"></th>
 	</tr>
 
 	</table>
 
 <form action="/allDelete" method="post">
 <input type="hidden" name="code">
-<input type="submit" value="全削除"></form>
+<div><input type="submit" value="全削除"></div></form></h3>
 </body>
 </html>

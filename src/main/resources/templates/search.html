@@ -3,11 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <title>検索画面</title>
+<link th:href="@{/top.css}" rel="stylesheet">
 </head>
 <body>
+<header>
 <h1>検索画面</h1>
+<h5 class="bird"></h5>
+<h5 class="bird -type_2"></h5>
+<h5 class="bird -type_3"></h5>
 
-<span th:replace="menu"></span>
+<span th:replace="menu"></span><br><br>
+</header>
 
 <form action="/todo/search" method="post">
 <p>
@@ -47,8 +53,8 @@ ToDo
 
 
 目標に追加
-<!-- <input type="checkbox" name="" value=""> -->
+<!-- <input type="checkbox" name="" value=""> --><br><br>
 
-<input type="submit" value="検索"></form>
+<div><input type="submit" value="検索"></div></form>
 </body>
 </html>

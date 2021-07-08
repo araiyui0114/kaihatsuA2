@@ -3,6 +3,10 @@
 body {/*全体*/
 	text-align: center; /*テキストを中央へ*/
 }
+header {
+	background-image: url('/../R.jfif');
+	 background-size: cover;
+}
 
 h1 { /*見出し*/
 	color: rosybrown;/*色*/
@@ -11,6 +15,7 @@ h1 { /*見出し*/
 h1 {/*見出し*/
   position: relative;
   padding-left: 25px;
+
 }
 
 h1:before {/*見出し*/
@@ -36,8 +41,9 @@ h1:after {/*見出し*/
 
 
 table{/*テーブル、リスト*/
-  width: 100%;
+  width: 50%;
   border-spacing: 100;
+  margin: 50px 500px 50px 410px;/*余白、場所*/
 }
 
 table th{/*テーブルnoチェックボックス*/
@@ -46,7 +52,7 @@ table th{/*テーブルnoチェックボックス*/
 }
 
 table td{/*内容、優先順位、削除*/
-  border-bottom: solid 2px #ddd;/*下線の色*/
+  border-bottom: solid 2px #494949;/*下線の色*/
   text-align: center;
   padding: 10px 0;
 }
@@ -55,7 +61,7 @@ div { /*削除ボタン*/
 	display: inline-block;
 	padding: 0.5em 1em;
 	text-decoration: none;
-	background: #cd5c5c; /*ボタン色*/
+	background: #faebd7; /*ボタン色*/
 	color: #FFF;
 	border-bottom: solid 4px #627295;
 	border-radius: 3px;
@@ -67,15 +73,131 @@ div:active { /*削除ボタンを押したとき*/
 	box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2); /*影を小さく*/
 	border-bottom: none;
 }
-
-a { /*メニューバー*/
-  padding: 1.0em 1.0em;/*文字の上下 左右の余白*/
+a {
+  padding: 0.25em 0.5em;/*上下 左右の余白*/
   color: #494949;/*文字色*/
-  background: #f4f4f4;/*背景色*/
+  background: transparent;/*背景透明に*/
   border-left: solid 5px #7db4e6;/*左線*/
-  border-bottom: solid 3px #d7d7d7;/*下線*/
 }
 
 a:hover{ /*メニューバー*/
 	color:red; /*カーソルが当たると赤くなる*/
 }
+
+h5 {/*鳥*/
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  transform: rotate(45deg);
+  animation: moving 16s linear infinite;
+}
+
+h5.-type_2 {/*鳥*/
+  animation-delay: 1s;
+}
+h5.-type_2:before,
+h5.-type_2:after {/*鳥*/
+  animation-delay: -2s;
+}
+
+h5.-type_3 {/*鳥*/
+  animation-delay: 3s;
+}
+
+@keyframes moving {/*鳥*/
+  0% {
+    top: 47vh;
+    left: -2vw;
+  }
+  25% {
+    top: 51vh;
+    left: 23vw
+  }
+  100% {
+    top: 47vh;
+    left: 101vw;
+  }
+}
+
+h5:before, .bird:after {/*鳥*/
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: black;
+  transform: rotate(-30deg);
+  transform-origin: right bottom;
+}
+
+h5:before {/*鳥*/
+  width: 100%;
+  height: 1px;
+  animation: leftWing 8s linear infinite;
+}
+h5:after {/*鳥*/
+  width: 1px;
+  height: 100%;
+  animation: rightWing 8s linear infinite;
+}
+
+@keyframes leftWing {/*鳥*/
+  0%   { transform: rotate(-30deg); }
+  2%   { transform: rotate(-110deg); }
+  4%   { transform: rotate(-30deg); }
+  6%   { transform: rotate(-110deg); }
+  8%   { transform: rotate(-30deg); }
+  10%  { transform: rotate(-110deg); }
+  12%  { transform: rotate(-30deg); }
+  30%  { transform: rotate(-30deg); }
+  42%  { transform: rotate(-35deg); }
+  72%  { transform: rotate(-35deg); }
+  74%  { transform: rotate(10deg); }
+  76%  { transform: rotate(-30deg); }
+  78%  { transform: rotate(-110deg); }
+  80%  { transform: rotate(-30deg); }
+  82%  { transform: rotate(-110deg); }
+  84%  { transform: rotate(-30deg); }
+  86%  { transform: rotate(-110deg); }
+  88%  { transform: rotate(-30deg); }
+  90%  { transform: rotate(-110deg); }
+  92%  { transform: rotate(-30deg); }
+  94%  { transform: rotate(-110deg); }
+  96%  { transform: rotate(-30deg); }
+  98%  { transform: rotate(-110deg); }
+  100% { transform: rotate(-30deg); }
+}
+
+@keyframes rightWing {/*鳥*/
+  0%   { transform: rotate(30deg); }
+  2%   { transform: rotate(110deg); }
+  4%   { transform: rotate(30deg); }
+  6%   { transform: rotate(110deg); }
+  8%   { transform: rotate(30deg); }
+  10%  { transform: rotate(110deg); }
+  12%  { transform: rotate(30deg); }
+  30%  { transform: rotate(30deg); }
+  42%  { transform: rotate(35deg); }
+  72%  { transform: rotate(35deg); }
+  74%  { transform: rotate(0deg); }
+  76%  { transform: rotate(30deg); }
+  78%  { transform: rotate(110deg); }
+  80%  { transform: rotate(30deg); }
+  82%  { transform: rotate(110deg); }
+  84%  { transform: rotate(30deg); }
+  86%  { transform: rotate(110deg); }
+  88%  { transform: rotate(30deg); }
+  90%  { transform: rotate(110deg); }
+  92%  { transform: rotate(30deg); }
+  94%  { transform: rotate(110deg); }
+  96%  { transform: rotate(30deg); }
+  98%  { transform: rotate(110deg); }
+  100% { transform: rotate(30deg); }
+}
+
+/****** Base style. ******/
+body {/*鳥*/
+  overflow: hidden;
+  height: 100vh;
+  margin: 0;
+}
+
