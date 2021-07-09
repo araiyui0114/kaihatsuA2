@@ -22,7 +22,7 @@ public class ToDoController {
 
 	//ログイン
 
-	//トップページ！
+	//トップページ！！
 	//http://localhost:8080/
 	@RequestMapping("/top")
 		public ModelAndView top(ModelAndView mv) {
