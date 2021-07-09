@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ログイン画面</title>
+</head>
+<body>
+<h1>ログイン画面</h1>
+<form action="/login" method="post">
+	<input type="text" name="mail" placeholder="メールアドレス">
+	<input type="submit" value="ログイン">
+	<br>
+	<span th:text="${message}" style="color:red"></span>
+</form>
+
+</body>
+</html>

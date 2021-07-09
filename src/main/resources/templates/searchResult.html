@@ -4,35 +4,167 @@
 <meta charset="UTF-8">
 <title>検索結果画面</title>
 <link th:href="@{/top.css}" rel="stylesheet">
+<style>
+
+h5 {/*鳥*/
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  transform: rotate(45deg);
+  animation: moving 16s linear infinite;
+}
+
+h5.-type_2 {/*鳥*/
+  animation-delay: 1s;
+}
+h5.-type_2:before,
+h5.-type_2:after {/*鳥*/
+  animation-delay: -2s;
+}
+
+h5.-type_3 {/*鳥*/
+  animation-delay: 3s;
+}
+
+@keyframes moving {/*鳥*/
+  0% {
+    top: 47vh;
+    left: -2vw;
+  }
+  25% {
+    top: 51vh;
+    left: 23vw
+  }
+  100% {
+    top: 47vh;
+    left: 101vw;
+  }
+}
+
+h5:before, .bird:after {/*鳥*/
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: black;
+  transform: rotate(-30deg);
+  transform-origin: right bottom;
+}
+
+h5:before {/*鳥*/
+  width: 100%;
+  height: 1px;
+  animation: leftWing 8s linear infinite;
+}
+h5:after {/*鳥*/
+  width: 1px;
+  height: 100%;
+  animation: rightWing 8s linear infinite;
+}
+
+@keyframes leftWing {/*鳥*/
+  0%   { transform: rotate(-30deg); }
+  2%   { transform: rotate(-110deg); }
+  4%   { transform: rotate(-30deg); }
+  6%   { transform: rotate(-110deg); }
+  8%   { transform: rotate(-30deg); }
+  10%  { transform: rotate(-110deg); }
+  12%  { transform: rotate(-30deg); }
+  30%  { transform: rotate(-30deg); }
+  42%  { transform: rotate(-35deg); }
+  72%  { transform: rotate(-35deg); }
+  74%  { transform: rotate(10deg); }
+  76%  { transform: rotate(-30deg); }
+  78%  { transform: rotate(-110deg); }
+  80%  { transform: rotate(-30deg); }
+  82%  { transform: rotate(-110deg); }
+  84%  { transform: rotate(-30deg); }
+  86%  { transform: rotate(-110deg); }
+  88%  { transform: rotate(-30deg); }
+  90%  { transform: rotate(-110deg); }
+  92%  { transform: rotate(-30deg); }
+  94%  { transform: rotate(-110deg); }
+  96%  { transform: rotate(-30deg); }
+  98%  { transform: rotate(-110deg); }
+  100% { transform: rotate(-30deg); }
+}
+
+@keyframes rightWing {/*鳥*/
+  0%   { transform: rotate(30deg); }
+  2%   { transform: rotate(110deg); }
+  4%   { transform: rotate(30deg); }
+  6%   { transform: rotate(110deg); }
+  8%   { transform: rotate(30deg); }
+  10%  { transform: rotate(110deg); }
+  12%  { transform: rotate(30deg); }
+  30%  { transform: rotate(30deg); }
+  42%  { transform: rotate(35deg); }
+  72%  { transform: rotate(35deg); }
+  74%  { transform: rotate(0deg); }
+  76%  { transform: rotate(30deg); }
+  78%  { transform: rotate(110deg); }
+  80%  { transform: rotate(30deg); }
+  82%  { transform: rotate(110deg); }
+  84%  { transform: rotate(30deg); }
+  86%  { transform: rotate(110deg); }
+  88%  { transform: rotate(30deg); }
+  90%  { transform: rotate(110deg); }
+  92%  { transform: rotate(30deg); }
+  94%  { transform: rotate(110deg); }
+  96%  { transform: rotate(30deg); }
+  98%  { transform: rotate(110deg); }
+  100% { transform: rotate(30deg); }
+}
+
+/****** Base style. ******/
+body {/*鳥*/
+  height: 100vh;
+  margin: 0;
+}
+
+</style>
 </head>
 <body>
-<header>
-<h1>検索結果画面</h1>
-<span th:replace="menu"></span><br><br>
+<h5 class="bird"></h5>
+<h5 class="bird -type_2"></h5>
+<h5 class="bird -type_3"></h5>
 
-</header>
-<h3>
-<table>
+	<header>
+		<h1>検索結果画面</h1>
+		<span th:replace="menu"></span><br>
+		<br>
 
-	<tr th:each="ToDo:${todoList}">
-	    <th rowspan="2"><input type="checkbox" name="checkbox" value="check"></th>
-		<td th:text="${ToDo.contents}"></td>
-		<th rowspan="2" th:text="${ToDo.rank}"></th>
-		<th rowspan="2">
-		<form action="/delete" method="post">
-        <input type="hidden" name="code" th:value="${ToDo.code}">
-       <div> <input type="submit" value="削除"></div></form>
-        </th>
-	</tr>
+	</header>
+	<h3>
+		<table>
+			<span th:each="ToDo:${todoList}">
+				<tr>
+					<th rowspan="2"><input type="checkbox" name="checkbox"
+						value="check"></th>
+					<td th:text="${ToDo.contents}"></td>
+					<th rowspan="2" th:text="${ToDo.rank}"></th>
+					<th rowspan="2">
+						<form action="/delete" method="post">
+							<input type="hidden" name="code" th:value="${ToDo.code}">
+							<div>
+								<input type="submit" value="削除">
+							</div>
+						</form>
+					</th>
+				</tr>
 
-	<tr th:each="ToDo:${todoList}">
-	<th th:text="${ToDo.date}"></th>
-	</tr>
+			<tr>
+				<th th:text="${ToDo.date}"></th>
+			</tr>
+			</span>
+		</table>
 
-	</table>
-
-<form action="/allDelete" method="post">
-<input type="hidden" name="code">
-<div><input type="submit" value="全削除"></div></form></h3>
+		<form action="/allDelete" method="post">
+			<input type="hidden" name="code">
+			<div>
+				<input type="submit" value="全削除">
+			</div>
+		</form>
+	</h3>
 </body>
 </html>
