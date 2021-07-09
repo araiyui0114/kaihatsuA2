@@ -4,11 +4,12 @@
 <meta charset="UTF-8">
 <title>トップ画面</title>
 <link th:href="@{/top.css}" rel="stylesheet">
+
 </head>
 <body>
 
 <header>
-	<h1>トップ画面</h1>
+	<h1>トップ</h1>
 	<span th:replace="menu"></span><br>
 </header>
 	<h3>
@@ -43,9 +44,9 @@
 
  <form action="/colorList">
 	<table border="1">
-	<tr><th><span>赤</span><input type="checkbox" name="colors" value=1></th>
-	<th><span>青</span><input type="checkbox" name="colors" value=2></th>
-	<th><span>黄</span><input type="checkbox" name="colors" value=3></th>
+	<tr><th><span>赤</span><div><input type="checkbox" name="colors" value=1></div></th>
+	<th><span>青</span><div><input type="checkbox" name="colors" value=2></div></th>
+	<th><span>黄</span><div><input type="checkbox" name="colors" value=3></div></th>
 	<th><button type="submit">表示</button></th></tr>
 	</table>
 	</form>

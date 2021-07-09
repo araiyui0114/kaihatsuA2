@@ -7,7 +7,7 @@
 </head>
 <body>
 <header>
-<h1>登録画面</h1>
+<h1>登録</h1>
 <span th:replace="menu"></span><br><br>
 </header>
 <h3>
@@ -30,7 +30,7 @@ ToDo
 </p>
 
 <p>
-優先順位
+優先順位<br>
 <select name="rank">
 <option value="1">高
 <option value="2">中
@@ -39,7 +39,7 @@ ToDo
 </p>
 
 <p>
-テキストの色
+テキストの色<br>
 <select name="color">
 <option value="1">赤
 <option value="2">青
@@ -47,10 +47,12 @@ ToDo
 </select>
 </p>
 
+<p>
 目標に追加
-<input type="checkbox" name="goal" th:value="contents">
-<br><br><br>
+<div><input type="checkbox" name="goal" th:value="contents"></div></p>
+<br>
 <button type="submit">登録</button>
+
 </form>
 </h3>
 </body>

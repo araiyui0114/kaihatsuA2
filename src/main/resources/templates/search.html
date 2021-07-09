@@ -7,7 +7,7 @@
 </head>
 <body>
 <header>
-<h1>検索画面</h1>
+<h1>検索</h1>
 <span th:replace="menu"></span><br><br>
 </header>
 <h3>
@@ -28,7 +28,7 @@ ToDo
 </p>
 
 <p>
-優先順位
+優先順位<br>
 <select name="rank">
 <option value="0">無
 <option value="1">高
@@ -38,7 +38,7 @@ ToDo
 </p>
 
 <p>
-テキストの色
+テキストの色<br>
 <select name="color">
 <option value="0">無
 <option value="1">赤
@@ -47,9 +47,10 @@ ToDo
 </select>
 </p>
 
+<p>
 目標に追加
-<input type="checkbox" name="goal" th:value="contents">
-<br><br>
+<div><input type="checkbox" name="goal" th:value="contents"></div></p>
+<br>
 
 <button type="submit">検索</button>
 </form>
