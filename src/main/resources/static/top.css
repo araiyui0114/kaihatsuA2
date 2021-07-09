@@ -14,7 +14,7 @@ header {
 
 h1 { /*見出し*/
 	color:#333333;/*色*/
-	margin: 50px 1000px 50px 200px;/*余白、場所*/
+	margin: 0px 1000px 50px 200px;/*余白、場所*/
 	font-size:50px;
 }
 h1 {/*見出し*/
@@ -74,7 +74,7 @@ a:hover{ /*メニューバー*/
 	color:rgb(0, 0, 128); /*カーソルが当たると青くなる*/
 }
 p {
-	font-size:20px;
+	font-size:18px;
 	color:#696969;/*色*/
 
 }
