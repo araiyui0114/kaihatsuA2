@@ -19,7 +19,7 @@ public class ToDoController {
 
 	@Autowired
 	ToDoRepository todoRepository;
-	
+
 	//ログイン
 
 	//トップページ
@@ -77,7 +77,7 @@ public class ToDoController {
 			//登録するToDoエンティティのインスタンスを生成
 			ToDo todo = new ToDo(contents,date,rank,color);
 
-			//ProductエンティティをProductsテーブルに登録
+			//TodoエンティティをTodoテーブルに登録
 			//INSERT INTO Products (name.price) VALUES ("ブルーベリー",2000);
 			ToDo newT = todoRepository.saveAndFlush(todo);
 
@@ -219,7 +219,6 @@ public class ToDoController {
 
 
 		//検索
-
 		@RequestMapping(value = "/todo/search" )
 		public ModelAndView search(ModelAndView mv) {
 			mv.setViewName("search");
