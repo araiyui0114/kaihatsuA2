@@ -41,8 +41,12 @@
 	</table>
 
  <form action="/colorList">
-	<span>赤</span><input type="checkbox" name="red" value=1>
-	<input type="submit" value="表示">
+	<table border="1">
+	<tr><th><span>赤</span><input type="checkbox" name="colors" value=1></th>
+	<th><span>青</span><input type="checkbox" name="colors" value=2></th>
+	<th><span>黄</span><input type="checkbox" name="colors" value=3></th>
+	<th><input type="submit" value="表示"></th></tr>
+	</table>
 	</form>
 	<br>
 	所持ポイント<input type="text">P<br><br>
@@ -52,5 +56,6 @@
 		<input type="hidden" name="code"> <input type="submit"value="全削除">
 		</form>
 	</div>
+	<div><a href="/logout">ログアウト</a></div>
 </body>
 </html>

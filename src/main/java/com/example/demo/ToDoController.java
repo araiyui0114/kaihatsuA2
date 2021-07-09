@@ -19,10 +19,12 @@ public class ToDoController {
 
 	@Autowired
 	ToDoRepository todoRepository;
+	
+	//ログイン
 
 	//トップページ
 	//http://localhost:8080/
-	@RequestMapping("/")
+	@RequestMapping("/top")
 		public ModelAndView top(ModelAndView mv) {
 
 		//DBからリストを取得
@@ -40,7 +42,7 @@ public class ToDoController {
 	//カラーリストの表示
 	@RequestMapping("/colorList")
 		public ModelAndView colorList(
-				@RequestParam("red")int color,
+				@RequestParam("colors")int color,
 				ModelAndView mv) {
 
 		//DBからリストを取得
