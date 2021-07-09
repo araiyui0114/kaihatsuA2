@@ -1,8 +1,9 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
 
 body {/*全体*/
 	text-align: center; /*テキストを中央へ*/
-
+	font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 header {
 	background-attachment: fixed;
@@ -14,6 +15,7 @@ header {
 h1 { /*見出し*/
 	color: rosybrown;/*色*/
 	margin: 50px 1000px 50px 200px;/*余白、場所*/
+	font-size:50px;
 }
 h1 {/*見出し*/
   position: relative;
@@ -50,7 +52,7 @@ table{/*テーブル、リスト*/
 }
 
 table th{/*テーブルnoチェックボックス*/
-  border-bottom: solid 2px #fb5144;/*下線の色*/
+  border-bottom: solid 2px #005500;/*下線の色*/
   padding: 10px 0;
 }
 
@@ -60,30 +62,68 @@ table td{/*内容、優先順位、削除*/
   padding: 10px 0;
 }
 
-div { /*削除ボタン*/
-	display: inline-block;
-	padding: 0.5em 1em;
-	text-decoration: none;
-	background: #faebd7; /*ボタン色*/
-	color: #FFF;
-	border-bottom: solid 4px #627295;
-	border-radius: 3px;
-}
-
-div:active { /*削除ボタンを押したとき*/
-	-webkit-transform: translateY(4px);
-	transform: translateY(4px); /*下に動く*/
-	box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2); /*影を小さく*/
-	border-bottom: none;
-}
 a {
   padding: 0.25em 0.5em;/*上下 左右の余白*/
   color: #494949;/*文字色*/
   background: transparent;/*背景透明に*/
   border-left: solid 5px #7db4e6;/*左線*/
+  font-size:30px;
 }
 
 a:hover{ /*メニューバー*/
 	color:red; /*カーソルが当たると赤くなる*/
 }
+p {
+	font-size:25px;
+	text-align: center;
+}
 
+button {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #668ad8;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+}
+button:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
+
+input {
+	position: relative;
+	width: 30%;
+	margin: 40px 30%;
+}
+input[type=text] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 30%;
+	margin: 8px 0;
+	padding: 0.3em;
+	transition: 0.3s;
+	border: 1px solid #1b2538;
+	border-radius: 4px;
+	outline: none;
+}
+input[type=text]:focus {
+	border-color: #da3c41;
+}
+input[type=text] {
+	padding-left: 40px;
+}
+ i {
+	position: absolute;
+	top: 8px;
+	left: 0;
+	padding: 9px 8px;
+	transition: 0.3s;
+	color: #aaaaaa;
+}
+input[type=text]:focus + i {
+	color: #da3c41;
+}
