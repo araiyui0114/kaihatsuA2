@@ -118,15 +118,18 @@ public class ToDoController {
         //更新
         @RequestMapping(value = "/todo/edit" )
         public ModelAndView edit(
-//				@RequestParam("code")int code,
+				@RequestParam("code")int code,
 //				@RequestParam("contents")String contents,
 //				@RequestParam("date")String date,
 //				@RequestParam("rank")int rank,
 //				@RequestParam("color")int color,
                 ModelAndView mv) {
 
-//				mv.addObject("code",code);
-//				mv.addObject("contents",contents);
+        		List<ToDo> todoList = null;
+        		todoList = todoRepository.findByCode(code);
+
+        		mv.addObject("code",code);
+				mv.addObject("todoList",todoList);
 //				mv.addObject("date",date);
 //				mv.addObject("rank",rank);
 //				mv.addObject("color",color);
