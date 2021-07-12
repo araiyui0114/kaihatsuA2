@@ -15,12 +15,14 @@
 
 <p>
 番号
-<input type="text" name="code">
+<input type="text" name="code" th:value="${code}">
 </p>
+
+<span th:each="ToDo:${todoList}">
 
 <p>
 ToDo
-<input type="text" name="contents">
+<input type="text" name="contents" th:value="${ToDo.contents}">
 </p>
 
 <!-- <p>
@@ -31,30 +33,31 @@ ToDo
 
 <p>
 期日
-<input type="text" name="date">
+<input type="text" name="date" th:value="${ToDo.date}">
 </p>
 
 <p>
 優先順位<br>
-<select name="rank">
-<option value=1>高
-<option value=2>中
-<option value=3>低
+<select name="rank" th:value="${ToDo.rank}">
+<option value=1 th:selected="${ToDo.rank == 1}">高
+<option value=2 th:selected="${ToDo.rank == 2}">中
+<option value=3 th:selected="${ToDo.rank == 3}">低
 </select>
 </p>
 
 <p>
 テキストの色<br>
-<select name="color">
-<option value=1>赤
-<option value=2>青
-<option value=3>黄
+<select name="color" th:value="${ToDo.color}" id="colors">
+<option value=1 th:selected="${ToDo.color == 1}">赤
+<option value=2 th:selected="${ToDo.color == 2}">青
+<option value=3 th:selected="${ToDo.color == 3}">黄
 </select>
 </p>
+</span>
 
 <p>
 目標に追加
-<div><input type="checkbox" name="goal" th:value="contents"></div>
+<div><input type="checkbox" name="goal"></div>
 
 <button type="submit">更新</button>
 </p>

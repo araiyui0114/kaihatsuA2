@@ -20,6 +20,10 @@ public class ToDoController {
     @Autowired
     ToDoRepository todoRepository;
 
+    @Autowired
+    PointRepository pointRepository;
+
+
     //ログイン
 
     //トップページ！！
@@ -119,20 +123,14 @@ public class ToDoController {
         @RequestMapping(value = "/todo/edit" )
         public ModelAndView edit(
 				@RequestParam("code")int code,
-//				@RequestParam("contents")String contents,
-//				@RequestParam("date")String date,
-//				@RequestParam("rank")int rank,
-//				@RequestParam("color")int color,
                 ModelAndView mv) {
 
+        		//対象のタスクの取得
         		List<ToDo> todoList = null;
         		todoList = todoRepository.findByCode(code);
 
         		mv.addObject("code",code);
 				mv.addObject("todoList",todoList);
-//				mv.addObject("date",date);
-//				mv.addObject("rank",rank);
-//				mv.addObject("color",color);
 
             mv.setViewName("edit");
             return mv;
@@ -192,7 +190,19 @@ public class ToDoController {
 
             todoRepository.deleteById(code);
 
+            //対象のタスクの取得
+    		List<Point> pointList = null;
+    		pointList = pointRepository.findByUsersCode(code);
+
+    		Integer usersPoint = ((Point) pointList).getPoint();
+
+           // mv.addObject("point",pointList);
+            mv.addObject("Point",usersPoint);
+
+            session.removeAttribute("setGoal");
             top(mv);
+
+
 
             mv.setViewName("top");
             return mv;
@@ -300,17 +310,4 @@ public class ToDoController {
             return mv;
         }
 
-        //タスクの完了
-        @RequestMapping("/checked")
-        public ModelAndView checked(
-                @RequestParam("checked")int code,
-                ModelAndView mv) {
-            todoRepository.deleteById(code);
-
-            top(mv);
-
-            return mv;
-        }
-
-        //
 }

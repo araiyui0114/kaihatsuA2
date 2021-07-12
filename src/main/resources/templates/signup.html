@@ -40,7 +40,7 @@ ToDo
 
 <p>
 テキストの色<br>
-<select name="color">
+<select name="color" id="colors">
 <option value="1">赤
 <option value="2">青
 <option value="3">黄
@@ -55,5 +55,10 @@ ToDo
 
 </form>
 </h2>
+
+<script>
+document.getElementById(colors).options[1].selected = true;
+</script>
+
 </body>
 </html>

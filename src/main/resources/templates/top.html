@@ -23,16 +23,16 @@
 	<table>
 		<span th:each="ToDo:${todoList}">
 		<tr>
-			<th rowspan="2"><div><input type="checkbox" id="XXX" name="checkbox" th:value="${ToDo.code}"></div></th>
+			<th rowspan="2"><div><input class="check" type="checkbox" th:id="${ToDo.code}" name="checkbox" th:value="${ToDo.code}"></div></th>
 			<td th:style="|color: ${ToDo.colorCode}|"th:text="${ToDo.contents}"></td>
 			<th rowspan="2" th:text="${ToDo.rankText}"></th>
-			<th rowspan="2">
+			<!-- <th rowspan="2">
 				<div>
 					<form action="/delete" method="get">
 						<input type="hidden" name="code" th:value="${ToDo.code}">
 						<button type="submit">削除</button>
 					</form>
-				</div>
+				</div> -->
 			</th>
 		</tr>
 
@@ -51,26 +51,36 @@
 	</table>
 	</form>
 	<br>
-	所持ポイント<input type="text">P<br><br>
+	所持ポイント<span th:text="${usersPoint}"></span>P<br><br>
 
 		<form action="/allDelete" method="post">
 		<input type="hidden" name="code">
 		<button type="submit">全削除</button>
 		</form>
-		<form action="/checked" method="get">
-		<input type="submit" value="完了">
-		<input type="hidden" name="cheked">
-		</form>
+		<a href="javascript:deleteTask();">完了</a>
 	<div><a href="/logout">ログアウト</a></div>
 
 <script type="text/javascript">
-function kansu() {
-	var xxx = document.getElementById("XXX");
+function editTask() {
+	var xxx = document.querySelectorAll(".check");
+	for(var i =0; i < xxx.length; i++){
 
-	if (xxx.checked == true) {
-		var code = xxx.value;
+		if (xxx[i].checked == true) {
+		var code = xxx[i].value;
 		location.href = "/todo/edit?code=" + code;
+		}
 	}
+}
+
+function deleteTask() {
+	var xxx = document.querySelectorAll(".check");
+		for(var i =0; i < xxx.length; i++){
+
+			if (xxx[i].checked == true) {
+			var code = xxx[i].value;
+			location.href = "/delete?code=" + code;
+			}
+		}
 }
 </script>
 </body>
