@@ -171,8 +171,8 @@ select { /*プルダウン*/
 .edit.icon {
   color: #000;
   position: absolute;
-  margin-left: 4px;
-  margin-top: 7px;
+  margin-left: 40px;
+  margin-top: 70px;
   width: 14px;
   height: 2px;
   border-radius: 1px;
