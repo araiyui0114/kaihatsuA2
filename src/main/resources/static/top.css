@@ -4,12 +4,15 @@
 body {/*全体*/
 	text-align: center; /*テキストを中央へ*/
 	font-family: 'M PLUS Rounded 1c', sans-serif;
+	background-image: url('/../a.jpg');
+	background-repeat: no-repeat;
+	 background-size: cover;
+	 background-color:rgba(255,255,255,0.6);
+	background-blend-mode:lighten;
+
 }
 header {
 	background-attachment: fixed;
-	background-image: url('/../R.jfif');
-	 background-size: cover;
-	 background-position: center center
 }
 
 h1 { /*見出し*/
@@ -32,7 +35,7 @@ h1:before {/*見出し*/
   height: 0;
   border: none;
   border-left: solid 15px transparent;
-  border-bottom: solid 15px rgb(192, 192, 192);
+  border-bottom: solid 15px #a0522d;
 }
 
 h1:after {/*見出し*/
@@ -41,7 +44,7 @@ h1:after {/*見出し*/
   bottom: -3px;
   left: 10px;
   width: 100%;
-  border-bottom: solid 3px rgb(192, 192, 192);
+  border-bottom: solid 3px #a0522d;
 }
 
 
@@ -49,10 +52,11 @@ table{/*テーブル、リスト*/
   width: 50%;
   border-spacing: 100;
   margin: 50px 500px 50px 410px;/*余白、場所*/
+  font-size:25px;
 }
 
 table th{/*テーブルnoチェックボックス*/
-  border-bottom: solid 4px #DCDCDC;/*下線の色*/
+  border-bottom: solid 4px #333333;/*下線の色*/
   padding: 10px 0;
 }
 
@@ -62,30 +66,30 @@ table td{/*内容、優先順位、削除*/
   padding: 10px 0;
 }
 
-a {
+a {/*メニューバーの文字*/
   padding: 0.25em 0.5em;/*上下 左右の余白*/
-  color: #494949;/*文字色*/
+  color: #333333;/*文字色*/
   background: transparent;/*背景透明に*/
-  border-left: solid 5px rgb(192, 192, 192);/*左線*/
+  border-left: solid 5px #a0522d;/*左線*/
   font-size:30px;
 }
 
 a:hover{ /*メニューバー*/
 	color:rgb(0, 0, 128); /*カーソルが当たると青くなる*/
 }
-p {
+p {/*項目*/
 	font-size:18px;
-	color:#696969;/*色*/
+	color:#333333;/*色*/
 
 }
-.btn-text-3d {
+button {
   text-decoration: none;
   font-weight: bold;
-  font-size: 37px;
+  font-size: 15px;
   color: #799dec;
   text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.32), 0px 1px 0px #6182ca, 0px 2px 0px #4f6aa7, 0px 3px 0px #5470ad;
 }
-.btn-text-3d:active {
+button:active {
   top: 4px;
   text-shadow: none;
 }
@@ -95,7 +99,7 @@ button {
   text-decoration: none;
   background: #CC9966;/*ボタン色*/
   color: #FFF;
-  border-bottom: solid 4px #627295;
+  border-bottom: solid 4px #333333;
   border-radius: 3px;
 }
 button:active {
@@ -105,12 +109,12 @@ button:active {
   border-bottom: none;/*線を消す*/
 }
 
-input {
+input {/*テキストボックス*/
 	position: relative;
 	width: 10%;
 	margin: 10px 5%;
 }
-input[type='text'] {
+input[type='text'] {/*テキストボックス*/
 	font: 15px/24px sans-serif;
 	box-sizing: border-box;
 	width: 30%;
@@ -121,23 +125,23 @@ input[type='text'] {
 	border: 1px solid #1b2538;
 	border-radius: 4px;
 }
- input[type='text']:focus {
+ input[type='text']:focus {/*テキストボックス*/
 	border: 1px solid #da3c41;
 	outline: none;
 	box-shadow: 0 0 5px 1px rgba(218,60,65, .5);
 }
-div [type=checkbox] {
-	width:			24px;
-	height:			24px;
-	-moz-transform:		scale(1.4);
-	-webkit-transform:	scale(1.4);
-	transform:		scale(1.4);
+div [type=checkbox] {/*チェックボックス*/
+	width:24px;
+	height:24px;
+	-moz-transform:scale(1.4);
+	-webkit-transform:scale(1.4);
+	transform:scale(1.4);
 }
 
-select {
-	width:			50px;
-	height:			24px;
-	-moz-transform:		scale(1.4);
-	-webkit-transform:	scale(1.4);
-	transform:		scale(1.4);
+select {/*プルダウン*/
+	width:50px;
+	height:24px;
+	-moz-transform:scale(1.4);
+	-webkit-transform:scale(1.4);
+	transform:scale(1.4);
 }
