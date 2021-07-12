@@ -45,5 +45,8 @@ public interface ToDoRepository extends JpaRepository<ToDo, Integer>{
 //	//リストの削除
 //	List<ToDo> deleteByToDoList();
 
+	//codeの検索
+		List<ToDo> findByCode(int code);
+
 }
 
