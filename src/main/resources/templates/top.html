@@ -23,7 +23,7 @@
 	<table>
 		<span th:each="ToDo:${todoList}">
 		<tr>
-			<th rowspan="2"><div><input type="checkbox" name="checkbox" value="check"></div></th>
+			<th rowspan="2"><div><input type="checkbox" name="checkbox"></div></th>
 			<td th:style="|color: ${ToDo.colorCode}|"th:text="${ToDo.contents}"></td>
 			<th rowspan="2" th:text="${ToDo.rankText}"></th>
 			<th rowspan="2">
@@ -57,7 +57,10 @@
 		<input type="hidden" name="code">
 		<button type="submit">全削除</button>
 		</form>
-
+		<form action="/checked" method="get">
+		<input type="submit" value="完了">
+		<input type="hidden" name="cheked">
+		</form>
 	<div><a href="/logout">ログアウト</a></div>
 </body>
 </html>

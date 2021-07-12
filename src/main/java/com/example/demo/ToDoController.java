@@ -286,4 +286,18 @@ public class ToDoController {
 			mv.setViewName("searchResult");
 			return mv;
 		}
+
+		//タスクの完了
+		@RequestMapping("/checked")
+		public ModelAndView checked(
+				@RequestParam("checked")int code,
+				ModelAndView mv) {
+			todoRepository.deleteById(code);
+
+			top(mv);
+
+			return mv;
+		}
+
+		//
 }
