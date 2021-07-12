@@ -130,13 +130,12 @@ body {/*鳥*/
 <h5 class="bird -type_2"></h5>
 <h5 class="bird -type_3"></h5>
 
-	<header>
-		<h1>--検索結果--</h1>
+
+		<h1>検索結果</h1>
 		<span th:replace="menu"></span><br>
 		<br>
 
-	</header>
-	<h2>
+
 		<table>
 			<span th:each="ToDo:${todoList}">
 				<tr>
@@ -147,9 +146,9 @@ body {/*鳥*/
 					<th rowspan="2">
 						<form action="/delete" method="post">
 							<input type="hidden" name="code" th:value="${ToDo.code}">
-							<div>
-								<button type="submit">削除</button>
-							</div>
+
+						<button type="submit">削除</button>
+
 						</form>
 					</th>
 				</tr>
@@ -162,10 +161,8 @@ body {/*鳥*/
 
 		<form action="/allDelete" method="post">
 			<input type="hidden" name="code">
-			<div>
 				<button type="submit">全削除</button>
-			</div>
+
 		</form>
-	</h2>
 </body>
 </html>

@@ -6,11 +6,9 @@
 <link th:href="@{/top.css}" rel="stylesheet">
 </head>
 <body>
-<header>
 <h1>検索</h1>
 <span th:replace="menu"></span><br><br>
-</header>
-<h2>
+
 <form action="/todo/search" method="post">
 <p>
 ToDo
@@ -24,7 +22,7 @@ ToDo
 
 <p>
 期日
-<input type="text" name="date">
+<input type="date" name="date">
 </p>
 
 <p>
@@ -41,9 +39,9 @@ ToDo
 テキストの色<br>
 <select name="color">
 <option value="0">無
-<option value="1">赤
-<option value="2">青
-<option value="3">黄
+<option value="1">&#x1f7e5;
+<option value="2">&#x1f7e6;
+<option value="3">&#x1f7e8;
 </select>
 </p>
 
@@ -54,6 +52,6 @@ ToDo
 
 <button type="submit">検索</button>
 </form>
-</h2>
+
 </body>
 </html>
