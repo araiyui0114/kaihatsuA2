@@ -76,7 +76,7 @@ public class AccountController {
 			session.setAttribute("usersInfo", usersInfo);
 
 			// セッションスコープにログイン名とtodo情報を格納する
-			session.setAttribute("ToDo", todoRepository.findAll());
+			mv.addObject("todoList", todoRepository.findAll());
 			session.setAttribute("name", name);
 
 			//Thymeleafにセット

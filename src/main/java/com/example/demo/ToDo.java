@@ -24,8 +24,8 @@ public class ToDo {
 			@Column(name="date")
 			private String date; //期日(MM/dd/mm)
 
-			@Column(name="id")
-			private Integer id; //ユーザーID
+			@Column(name="usersid")
+			private Integer usersid; //ユーザーID
 
 			@Column(name="rank")
 			private Integer rank; //優先順位
@@ -48,11 +48,11 @@ public class ToDo {
 				this.color = color;
 			}
 
-			public ToDo(String contents, String date, Integer id, Integer rank, Integer color) {
+			public ToDo(String contents, String date, Integer usersid, Integer rank, Integer color) {
 				super();
 				this.contents = contents;
 				this.date = date;
-				this.id = id;
+				this.usersid = usersid;
 				this.rank = rank;
 				this.color = color;
 			}
@@ -66,12 +66,12 @@ public class ToDo {
 				this.color = color;
 			}
 
-			public ToDo(Integer code, String contents, String date, Integer id, Integer rank, Integer color) {
+			public ToDo(Integer code, String contents, String date, Integer usersid, Integer rank, Integer color) {
 				super();
 				this.code = code;
 				this.contents = contents;
 				this.date = date;
-				this.id = id;
+				this.usersid = usersid;
 				this.rank = rank;
 				this.color = color;
 			}
@@ -103,11 +103,11 @@ public class ToDo {
 			}
 
 			public Integer getId() {
-				return id;
+				return usersid;
 			}
 
 			public void setId(Integer id) {
-				this.id = id;
+				this.usersid = id;
 			}
 
 			public Integer getRank() {
