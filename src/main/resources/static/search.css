@@ -9,12 +9,13 @@ body { /*全体*/
 	background-size: cover;
 	background-color: rgba(255, 255, 255, 0.6);
 	background-blend-mode: lighten;
+	background-attachment: fixed
 }
 .searchbutton{
-	margin: 30px 30px 20px 0px;
-	position: relative;
-	top: 30px;
-	right: -300px;
+	display:run-in;
+;
+	top: 230px;
+	right:-310px;
 }
 .todo{
 	margin: 30px 30px 20px 0px;
@@ -31,36 +32,52 @@ body { /*全体*/
 .priority{
 	display:inline;
 	position: relative;
-	top: -130px;
+	top: -280px;
 	left: 400px;
 }
 .prioritybox{
 	display:inline;
 	position: relative;
-	top: 5px;
+	top: 30px;
 	left: 70px;
+
+	width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: skyblue;
 }
+
 .color{
 	display:inline;
 	position: relative;
-	top: -160px;
-	left: 500px;
+	top: -200px;
+	left: 530px;
 }
 .colorbox{
 	display:inline;
 	position: relative;
 	top: 0px;
-	left: 90px;
+	left: 120px;
+
+	width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: skyblue;
 }
 .goal{
 	display:inline;
 	position: relative;
-	top: -190px;
-	left:650px;
+	top: -160px;
+	left:750px;
 }
 .goalbox{
 	display:inline;
 	position: relative;
-	top: -155px;
-	left: 580px;
+	top: 0px;
+	left: 70px;
+
+	width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: skyblue;
 }
