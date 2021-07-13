@@ -21,6 +21,8 @@ public class AccountController {
 	ToDoRepository todoRepository;
 	@Autowired
 	UsersRepository usersRepository;
+	@Autowired
+	PointRepository pointRepository;
 
 
 	/**
@@ -78,6 +80,18 @@ public class AccountController {
 			// セッションスコープにログイン名とtodo情報を格納する
 			mv.addObject("todoList", todoRepository.findAll());
 			session.setAttribute("name", name);
+
+			int usersid = usersInfo.getCode();
+
+			//対象のタスクの取得
+			List<Point> pointList = null;
+			pointList = pointRepository.findByUsersCode(usersid);
+
+			Point point = pointList.get(0);
+
+			Integer usersPoint = point.getPoint();
+
+	        mv.addObject("Point",usersPoint);
 
 			//Thymeleafにセット
 			//mv.addObject("todoList",usersInfo);

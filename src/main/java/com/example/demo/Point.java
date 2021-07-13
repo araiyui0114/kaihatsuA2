@@ -17,7 +17,7 @@ public class Point {
 	@Column(name="code")
 	private Integer code;
 
-	@Column(name="usersCode")
+	@Column(name="userscode")
 	private Integer usersCode;
 
 	@Column(name="point")

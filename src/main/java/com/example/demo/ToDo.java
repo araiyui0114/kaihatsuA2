@@ -125,6 +125,13 @@ public class ToDo {
 			public void setColor(Integer color) {
 				this.color = color;
 			}
+			public Integer getUsersid() {
+				return usersid;
+			}
+
+			public void setUsersid(Integer usersid) {
+				this.usersid = usersid;
+			}
 
 			//カラーコードへの変換
 			public String getColorCode() {
@@ -153,6 +160,8 @@ public class ToDo {
 				}
 				return rankText;
 			}
+
+
 
 
 }

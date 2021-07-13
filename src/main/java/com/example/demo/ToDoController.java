@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 
@@ -31,11 +32,27 @@ public class ToDoController {
     @RequestMapping("/top")
         public ModelAndView top(ModelAndView mv) {
 
+    	Users usersInfo = (Users) session.getAttribute("usersInfo");
+
+    	int usersid = usersInfo.getCode();
+
+    	System.out.println("usersid=" + usersid);
+
         //DBからリストを取得
-        List<ToDo> todoList = todoRepository.findAll();
+        List<ToDo> todoList = todoRepository.findByUsersid(usersid);
 
         //Thymeleafに設定
         mv.addObject("todoList", todoList);
+
+        //対象のタスクの取得
+		List<Point> pointList = null;
+		pointList = pointRepository.findByUsersCode(usersid);
+
+		Point point = pointList.get(0);
+
+		Integer usersPoint = point.getPoint();
+
+        mv.addObject("Point",usersPoint);
 
         //top.htmlに設定
         mv.setViewName("top");
@@ -188,15 +205,27 @@ public class ToDoController {
                 @RequestParam("code")int code,
                 ModelAndView mv) {
 
+        	Optional<ToDo> record = todoRepository.findById(code);
+        	ToDo todo  = record.get();
+        	int usersid  = todo.getUsersid();
+
             todoRepository.deleteById(code);
 
             //対象のタスクの取得
     		List<Point> pointList = null;
-    		pointList = pointRepository.findByUsersCode(code);
+    		pointList = pointRepository.findByUsersCode(usersid);
 
-    		Integer usersPoint = ((Point) pointList).getPoint();
+    		Point point = pointList.get(0);
 
-           // mv.addObject("point",pointList);
+    		Integer usersPoint = point.getPoint();
+
+    		usersPoint += 10;
+
+    		point.setPoint(usersPoint);
+
+    		//ToDoエンティティをToDoテーブルに登録
+            pointRepository.saveAndFlush(point);
+
             mv.addObject("Point",usersPoint);
 
             session.removeAttribute("setGoal");

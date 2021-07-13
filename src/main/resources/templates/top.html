@@ -51,12 +51,8 @@
 	</table>
 	</form>
 	<br>
-	所持ポイント<span th:text="${usersPoint}"></span>P<br><br>
+	所持ポイント<span th:text="${Point}"></span>P<br><br>
 
-		<form action="/allDelete" method="post">
-		<input type="hidden" name="code">
-		<button type="submit">全削除</button>
-		</form>
 		<a href="javascript:deleteTask();">完了</a>
 	<div><a href="/logout">ログアウト</a></div>
 
