@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>トップ画面</title>
 <link th:href="@{/top.css}" rel="stylesheet">
-
 </head>
 <body>
 
@@ -52,9 +51,9 @@
 	</table>
 	</form>
 	<br>
-	所持ポイント<span th:text="${Point}"></span>P<br><br>
+	所持ポイント<span th:text="${Point}"></span>P<br><br><br>
 
-		<a href="javascript:deleteTask();">完了</a>
+		<a  class="gg-check-o" href="javascript:deleteTask();"></a><br><br>
 	<div><a href="/logout">ログアウト</a></div>
 
 <script type="text/javascript">

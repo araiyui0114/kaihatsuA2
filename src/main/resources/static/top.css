@@ -304,3 +304,31 @@ select { /*プルダウン*/
  bottom: 4px;
  left: 8px
 }
+
+.gg-check-o {
+    box-sizing: border-box;
+    position: absolute;
+    display: block;
+    transform: scale(var(--ggs,1));
+    left: 730px;
+    top: 630px;
+    width: 70px;
+    height: 70px;
+    border: 2px solid;
+    border-radius: 100px
+}
+.gg-check-o::after {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    left: 20px;
+    top: 5px;
+    width: 15px;
+    height: 30px;
+    border-color: currentColor;
+    border-width: 0 2px 2px 0;
+    border-style: solid;
+    transform-origin: bottom left;
+    transform: rotate(45deg)
+}
