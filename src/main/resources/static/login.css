@@ -238,3 +238,41 @@ select { /*プルダウン*/
  left: 4px;
  bottom: -2px
 }
+
+
+.gg-user {/*ユーザー*/
+ display: block;
+ transform: scale(var(--ggs,1));
+ box-sizing: border-box;
+ width: 12px;
+ height: 18px
+}
+
+.gg-user::after,
+.gg-user::before {/*ユーザー*/
+ content: "";
+ display: block;
+ box-sizing: border-box;
+ position: absolute;
+ border: 2px solid
+}
+
+.gg-user::before {/*ユーザー*/
+ width: 20px;
+ height: 20px;
+ border-radius: 30px;
+ top: 20px;
+ left: 482px
+}
+
+.gg-user::after {/*ユーザー*/
+ width: 27px;
+ height: 15px;
+ border-bottom: 0;
+ border-top-left-radius: 3px;
+ border-top-right-radius: 3px;
+ top: 40px;
+  left: 480px;
+}
+
+

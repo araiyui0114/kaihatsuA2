@@ -124,7 +124,7 @@ select { /*プルダウン*/
   color: #000;
   position: absolute;
   margin-top: -20px;
-  margin-left: 3px;
+  margin-left: 300px;
   width: 45px;
   height: 45px;
   border: solid 1px currentColor;
@@ -146,7 +146,7 @@ select { /*プルダウン*/
 .plus.icon {/*登録*/
   color: #000;
   position: absolute;
-  margin-left: -140px;
+  margin-left: -100px;
   margin-top: 10px;
 }
 
@@ -171,8 +171,8 @@ select { /*プルダウン*/
 .edit.icon {/*更新*/
   color: #000;
   position: absolute;
-  margin-left: -70px;
-  margin-top: -5px;
+  margin-left: 100px;
+  margin-top: -15px;
   width: 60px;
   height: 20px;
   border-radius: 1px;
@@ -184,29 +184,30 @@ select { /*プルダウン*/
 .edit.icon:before {/*更新*/
   content: '';
   position: absolute;
-  left: -12px;
-  top: -1px;
-  width: 10px;
-  height: 10px;
-  border-left: solid 5px transparent;
-  border-right: solid 5px currentColor;
-  border-top: solid 2px transparent;
-  border-bottom: solid 2px transparent;
+  left: -40px;
+  top: 0px;
+  width: 0px;
+  height: 0px;
+  border-left: solid -10px transparent;
+  border-right: solid 30px currentColor;
+  border-top: solid 10px transparent;
+  border-bottom: solid 10px transparent;
 }
 
  .gg-home-alt {/*トップ*/
  box-sizing: border-box;
- position: relative;
+ position: absolute;
  display: block;
  transform: scale(var(--ggs,1));
- width: 18px;
- height: 14px;
+ width: 50px;
+ height: 50px;
  border: 2px solid;
  border-top: 0;
  border-radius: 2px;
  border-bottom-left-radius: 3px;
  border-bottom-right-radius: 3px;
- margin-bottom: -2px
+ margin-bottom: -50px;
+ left: 500px;
 }
 
 .gg-home-alt::after,
@@ -220,21 +221,21 @@ select { /*プルダウン*/
 .gg-home-alt::before {/*トップ*/
  border-top: 2px solid;
  border-left: 2px solid;
- border-top-left-radius: 4px;
+ border-top-left-radius: 40px;
  transform: rotate(45deg);
- top: -5px;
+ top: -13px;
  border-radius: 3px;
- width: 14px;
- height: 14px;
- left: 0
+ width: 50px;
+ height: 50px;
+ left: -1px;
 }
 
 .gg-home-alt::after {/*トップ*/
- width: 6px;
- height: 10px;
+ width: 30px;
+ height: 30px;
  background: currentColor;
  border-top-left-radius: 100px;
  border-top-right-radius: 100px;
- left: 4px;
- bottom: -2px
+ left: 10px;
+ bottom: -1px
 }
