@@ -156,7 +156,7 @@ select { /*プルダウン*/
           transform: rotate(90deg);
 }
 
-.edit.icon {/*更新*/
+.edit.icon {/*更新！*/
   color: #000;
   position: absolute;
   margin-left: -70px;
