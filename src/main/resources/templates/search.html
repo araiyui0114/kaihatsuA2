@@ -3,31 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <title>検索画面</title>
-<link th:href="@{/top.css}" rel="stylesheet">
+<link th:href="@{/search.css}" rel="stylesheet">
 </head>
 <body>
-<h1>検索</h1>
+<h1 class="title">検索</h1>
 <span th:replace="menu"></span><br><br>
 
 <form action="/todo/search" method="post">
-<p>
+<p class="todo">
 ToDo
-<input type="text" name="contents">
+<input  type="text" name="contents">
 </p>
 
-<!--<p>
-種類
- <input type="text" name="type">
-</p> -->
-
-<p>
+<p class="date">
 期日
-<input type="date" name="date">
+<input  type="date" name="date">
 </p>
 
-<p>
+<p class="priority">
 優先順位<br>
-<select name="rank">
+<select  name="rank">
 <option value="0">無
 <option value="1">高
 <option value="2">中
@@ -35,7 +30,7 @@ ToDo
 </select>
 </p>
 
-<p>
+<p class="color">
 テキストの色<br>
 <select name="color">
 <option value="0">無
@@ -45,12 +40,13 @@ ToDo
 </select>
 </p>
 
-<p>
+<p class="goal">
 目標に追加
-<div><input type="checkbox" name="goal" th:value="contents"></div></p>
+<div class="goalbox"><input type="checkbox" name="goal" th:value="contents"></div>
+</p>
 <br>
 
-<button type="submit">検索</button>
+<button class="search" type="submit">検索</button>
 </form>
 
 </body>

@@ -44,23 +44,6 @@ h1:after { /*見出し*/
 	border-bottom: solid 3px #a0522d;
 }
 
-table { /*テーブル、リスト*/
-	width: 50%;
-	border-spacing: 100;
-	margin: 50px 500px 50px 410px; /*余白、場所*/
-	font-size: 25px;
-}
-
-table th { /*テーブルのチェックボックス*/
-	border-bottom: solid 4px #333333; /*下線の色*/
-	padding: 10px 0;
-}
-
-table td { /*内容、優先順位、削除*/
-	border-bottom: solid 2px #494949; /*下線の色*/
-	text-align: center;
-	padding: 10px 0;
-}
 
 a:hover { /*メニューバー*/
 	color: rgb(0, 0, 128); /*カーソルが当たると青くなる*/
@@ -237,4 +220,47 @@ select { /*プルダウン*/
  border-top-right-radius: 100px;
  left: 4px;
  bottom: -2px
+}
+
+.title{
+	position: relative;
+	right: 200px;
+	top:10px;
+}
+
+.todo{
+	position: relative;
+  margin-top: 250px;
+  margin-right: 800px;
+}
+.date{
+	position: relative;
+  margin-top: 250px;
+  margin-right: 900px;
+}
+
+.priority{
+	position: relative;
+  margin-bottom: 700px;
+  margin-left:50px;
+}
+.color{
+	position: relative;
+  margin-top: 20px;
+  margin-left: 1000px;
+}
+.goal{
+	position: relative;
+  margin-top: 20px;
+  margin-left: 1200px;
+}
+.goalbox{
+	position: relative;
+  margin-top: 53px;
+  margin-left: 1232px;
+}
+.search{
+	position: relative;
+  margin-top: 300px;
+  margin-left: 0px;
 }
