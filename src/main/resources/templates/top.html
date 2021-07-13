@@ -8,12 +8,12 @@
 <body>
 
 <header>
-	<h1>トップ</h1>
+	<h1>TOP</h1>
 	<span th:replace="menu"></span><br>
 </header>
 	<h3>
 	<i class="gg-user"></i>
-		こんにちは <span th:text="${session.name}"></span> さん<br><br>
+		HELLO <span th:text="${session.name}"></span> さん<br><br>
 	</h3>
 
 	<h3>
@@ -43,10 +43,10 @@
 	</table>
 
  <form action="/colorList">
-	<table border="1">
-	<tr><th><span>赤</span><div><input type="checkbox" name="colors" value=1></div></th>
-	<th><span>青</span><div><input type="checkbox" name="colors" value=2></div></th>
-	<th><span>黄</span><div><input type="checkbox" name="colors" value=3></div></th>
+	<table>
+	<tr><th><span><font color="#990000">赤</font></span><div><input type="checkbox" name="colors" value=1></div></th>
+	<th><span><font color="#003366">青</font></span><div><input type="checkbox" name="colors" value=2></div></th>
+	<th><span><font color="#FFCC66">黄</font></span><div><input type="checkbox" name="colors" value=3></div></th>
 	<th><button type="submit"><i class="gg-eye-alt"></i></button></th></tr>
 	</table>
 	</form>

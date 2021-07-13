@@ -13,37 +13,6 @@ body { /*全体*/
 	background-blend-mode: lighten;
 }
 
-h1 { /*見出し*/
-	color: #333333; /*色*/
-	margin: 0px 1000px 50px 200px; /*余白、場所*/
-	font-size: 50px;
-}
-
-h1 { /*見出し*/
-	position: relative;
-	padding-left: 25px;
-}
-
-h1:before { /*見出し*/
-	position: absolute;
-	content: '';
-	bottom: -3px;
-	left: 0;
-	width: 0;
-	height: 0;
-	border: none;
-	border-left: solid 15px transparent;
-	border-bottom: solid 15px #a0522d;
-}
-
-h1:after { /*見出し*/
-	content: '';
-	bottom: -3px;
-	left: 10px;
-	width: 100%;
-	border-bottom: solid 3px #a0522d;
-}
-
 table { /*テーブル、リスト*/
 	width: 50%;
 	border-spacing: 100;
@@ -60,10 +29,6 @@ table td { /*内容、優先順位、削除*/
 	border-bottom: solid 2px #494949; /*下線の色*/
 	text-align: center;
 	padding: 10px 0;
-}
-
-a:hover { /*メニューバー*/
-	color: rgb(0, 0, 128); /*カーソルが当たると青くなる*/
 }
 
 p { /*項目*/
@@ -266,7 +231,7 @@ select { /*プルダウン*/
  position: relative;
  display: block;
  transform: scale(var(--ggs,1));
- width: 24px;
+ width: 25px;
  height: 18px;
  border-bottom-right-radius: 100px;
  border-bottom-left-radius: 100px;
@@ -359,4 +324,14 @@ select { /*プルダウン*/
   z-index: -2;
   opacity: .3;
   filter: blur(50px);
+}
+ button {/*表示ボタン*/
+  border: none;
+   background: transparent;
+}
+
+
+h1:first-letter {/*見出し*/
+  font-size: 2em;
+  color: #7172ac;
 }

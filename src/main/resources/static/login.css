@@ -275,4 +275,8 @@ select { /*プルダウン*/
   left: 480px;
 }
 
+h1:first-letter {/*見出し*/
+  font-size: 2em;
+  color: #7172ac;
+}
 
