@@ -12,18 +12,20 @@ body { /*全体*/
 	background-attachment: fixed
 }
 .searchbutton{
-	display:run-in;
-;
-	top: 230px;
+	display:inline;
+	position: absolute;
+	top: -80px;
 	right:-310px;
 }
 .todo{
+	display:inline;
 	margin: 30px 30px 20px 0px;
 	position: relative;
 	top: 80px;
 	right: 300px;
 }
 .date{
+	display:inline;
 	margin: 30px 30px 20px 0px;
 	position: relative;
 	top: 160px;
@@ -73,11 +75,11 @@ body { /*全体*/
 .goalbox{
 	display:inline;
 	position: relative;
-	top: 0px;
-	left: 70px;
+	top: -200px;
+	left: 850px;
 
-	width: 120px;
-  height: 120px;
+	width: 60px;
+  height: 60px;
   border-radius: 50%;
   background: skyblue;
 }
