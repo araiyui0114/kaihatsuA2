@@ -152,11 +152,11 @@ public class ToDo {
 				String rankText = " ";
 
 				if( rank == 1) {
-					rankText = "高";
+					rankText = "high.PNG";
 				}else if( rank == 2) {
-					rankText = "中";
+					rankText = "midlle.PNG";
 				}else if( rank == 3) {
-					rankText = "低";
+					rankText = "low.PNG";
 				}
 				return rankText;
 			}

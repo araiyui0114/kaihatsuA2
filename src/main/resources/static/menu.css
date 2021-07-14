@@ -5,7 +5,7 @@
 body { /*全体*/
     text-align:center;
 	font-family: 'M PLUS Rounded 1c', sans-serif;
-	background-image: url('/../a.jpg');
+	background-image: url('/../backG.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-color: rgba(255, 255, 255, 0.6);
@@ -22,28 +22,6 @@ h1 { /*見出し*/
 	position: relative;
 	padding-left: 25px;
 }
-
-h1:before { /*見出し*/
-	position: absolute;
-	content: '';
-	bottom: -3px;
-	left: 0;
-	width: 0;
-	height: 0;
-	border: none;
-	border-left: solid 15px transparent;
-	border-bottom: solid 15px #a0522d;
-}
-
-h1:after { /*見出し*/
-	position: absolute;
-	content: '';
-	bottom: -3px;
-	left: 10px;
-	width: 100%;
-	border-bottom: solid 3px #a0522d;
-}
-
 table { /*テーブル、リスト*/
 	width: 50%;
 	border-spacing: 100;
@@ -120,59 +98,62 @@ select { /*プルダウン*/
 	transform: scale(1.4);
 }
 
-.search.icon {/*検索*/
+.search-icon-alt {/*検索*/
   color: #000;
   position: absolute;
-  margin-top: -20px;
+  display:inline;
+  margin-top: -105px;
   margin-left: 300px;
-  width: 45px;
-  height: 45px;
+  width: 55px;
+  height: 55px;
   border: solid 1px currentColor;
   border-radius: 100%;
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
 
-.search.icon:before {/*検索*/
+.search-icon-alt:before {/*検索*/
   content: '';
   position: absolute;
-  top: 45px;
-  left: 18px;
-  height: 15px;
-  width: 1px;
+  top: 55px;
+  left: 23px;
+  height: 30px;
+  width: 2px;
   background-color: currentColor;
 }
 
-.plus.icon {/*登録*/
+.plus-icon-alt {/*登録*/
   color: #000;
   position: absolute;
+   display:inline;
   margin-left: -100px;
-  margin-top: 10px;
+  margin-top: -70px;
 }
 
-.plus.icon:before {/*登録*/
+.plus-icon-alt:before {/*登録*/
   content: '';
   position: absolute;
-  width: 50px;
-  height: 1px;
+  width: 70px;
+  height: 2px;
   background-color: currentColor;
 }
 
-.plus.icon:after {/*登録*/
+.plus-icon-alt:after {/*登録*/
   content: '';
   position: absolute;
-  width: 50px;
-  height: 1px;
+  width: 70px;
+  height: 2px;
   background-color: currentColor;
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
 }
 
-.edit.icon {/*更新*/
+.edit-icon-alt{/*更新*/
   color: #000;
   position: absolute;
+   display:inline;
   margin-left: 100px;
-  margin-top: -15px;
+  margin-top: -85px;
   width: 60px;
   height: 20px;
   border-radius: 1px;
@@ -181,11 +162,11 @@ select { /*プルダウン*/
           transform: rotate(-45deg);
 }
 
-.edit.icon:before {/*更新*/
+.edit-icon-alt:before {/*更新*/
   content: '';
   position: absolute;
-  left: -40px;
-  top: 0px;
+  left: -34px;
+  top: -1px;
   width: 0px;
   height: 0px;
   border-left: solid -10px transparent;
@@ -195,9 +176,10 @@ select { /*プルダウン*/
 }
 
  .gg-home-alt {/*トップ*/
+ color: #000;
  box-sizing: border-box;
  position: absolute;
- display: block;
+  display:inline;
  transform: scale(var(--ggs,1));
  width: 50px;
  height: 50px;
@@ -206,14 +188,13 @@ select { /*プルダウン*/
  border-radius: 2px;
  border-bottom-left-radius: 3px;
  border-bottom-right-radius: 3px;
- margin-bottom: -50px;
+ margin-top:-80px;
  left: 500px;
 }
 
 .gg-home-alt::after,
 .gg-home-alt::before {/*トップ*/
  content: "";
- display: block;
  box-sizing: border-box;
  position: absolute
 }

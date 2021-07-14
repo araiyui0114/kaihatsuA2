@@ -7,7 +7,7 @@
 </head>
 <body>
 <header>
-<h1>Update</h1>
+<h1><img src="/../edit.png" width="300px" height="300px"></h1>
 <span th:replace="menu"></span><br><br>
 </header>
 <h2>
@@ -25,12 +25,6 @@ ToDo
 <input type="text" name="contents" th:value="${ToDo.contents}">
 </p>
 
-<!-- <p>
-種類
-<input type="text" name="type">
-</p>
- -->
-
 <p>
 期日
 <input type="text" name="date" th:value="${ToDo.date}">
@@ -39,18 +33,18 @@ ToDo
 <p>
 優先順位<br>
 <select name="rank" th:value="${ToDo.rank}">
-<option value=1 th:selected="${ToDo.rank == 1}">高
-<option value=2 th:selected="${ToDo.rank == 2}">中
-<option value=3 th:selected="${ToDo.rank == 3}">低
+<option value=1 th:selected="${ToDo.rank == 1}">!!!
+<option value=2 th:selected="${ToDo.rank == 2}">!!
+<option value=3 th:selected="${ToDo.rank == 3}">!
 </select>
 </p>
 
 <p>
 テキストの色<br>
 <select name="color" th:value="${ToDo.color}" id="colors">
-<option value=1 th:selected="${ToDo.color == 1}">赤
-<option value=2 th:selected="${ToDo.color == 2}">青
-<option value=3 th:selected="${ToDo.color == 3}">黄
+<option value=1 th:selected="${ToDo.color == 1}">&#x1f7e5;
+<option value=2 th:selected="${ToDo.color == 2}">&#x1f7e6;
+<option value=3 th:selected="${ToDo.color == 3}">&#x1f7e8;
 </select>
 </p>
 </span>
@@ -59,7 +53,7 @@ ToDo
 目標に追加
 <div><input type="checkbox" name="goal"></div>
 
-<button type="submit">更新</button>
+<button type="submit"><img src="/../editB.PNG" width="300px" height="300px"></button>
 </p>
 </form>
 </h2>

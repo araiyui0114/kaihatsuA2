@@ -5,11 +5,16 @@
 body { /*全体*/
     text-align:center;
 	font-family: 'M PLUS Rounded 1c', sans-serif;
-	background-image: url('/../a.jpg');
+	background-image: url('/../backG.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-color: rgba(255, 255, 255, 0.6);
 	background-blend-mode: lighten;
+}
+
+h1{
+	position: relative;
+	left: -200px;
 }
 table { /*テーブル、リスト*/
 	width: 50%;
@@ -44,6 +49,8 @@ button {
   font-size: 25px;
   color: #333333;
   text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.32), 0px 1px 0px #6182ca, 0px 2px 0px #4f6aa7, 0px 3px 0px #5470ad;
+  border: none;
+  background: transparent;
 }
 button:active {
   top: 4px;

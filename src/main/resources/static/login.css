@@ -5,43 +5,16 @@
 body { /*全体*/
     text-align:center;
 	font-family: 'M PLUS Rounded 1c', sans-serif;
-	background-image: url('/../a.jpg');
+	background-image: url('/../backG.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-color: rgba(255, 255, 255, 0.6);
 	background-blend-mode: lighten;
 }
 
-h1 { /*見出し*/
-	color: #333333; /*色*/
-	margin: 0px 1000px 50px 200px; /*余白、場所*/
-	font-size: 50px;
-}
-
-h1 { /*見出し*/
+h1{
 	position: relative;
-	padding-left: 25px;
-}
-
-h1:before { /*見出し*/
-	position: absolute;
-	content: '';
-	bottom: -3px;
-	left: 0;
-	width: 0;
-	height: 0;
-	border: none;
-	border-left: solid 15px transparent;
-	border-bottom: solid 15px #a0522d;
-}
-
-h1:after { /*見出し*/
-	position: absolute;
-	content: '';
-	bottom: -3px;
-	left: 10px;
-	width: 100%;
-	border-bottom: solid 3px #a0522d;
+	left: -500px;
 }
 
 table { /*テーブル、リスト*/
@@ -77,6 +50,8 @@ button {
   font-size: 25px;
   color: #333333;
   text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.32), 0px 1px 0px #6182ca, 0px 2px 0px #4f6aa7, 0px 3px 0px #5470ad;
+  border: none;
+  background: transparent;
 }
 button:active {
   top: 4px;

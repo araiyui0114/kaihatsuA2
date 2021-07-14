@@ -9,24 +9,24 @@ body { /*全体*/
 	background-size: cover;
 	background-color: rgba(255, 255, 255, 0.6);
 	background-blend-mode: lighten;
-	background-attachment: fixed
+	background-attachment: fixed;
+	text-align:center;
 }
-.searchbutton{
-	display:inline;
-	position: absolute;
-	top: -80px;
-	right:-310px;
+
+h1{
+	position: relative;
+	left: -200px;
 }
 .todo{
 	display:inline;
-	margin: 30px 30px 20px 0px;
+	margin: 30px 30px 20px -500px;
 	position: relative;
 	top: 80px;
 	right: 300px;
 }
 .date{
 	display:inline;
-	margin: 30px 30px 20px 0px;
+	margin: 30px 30px 20px -500px;
 	position: relative;
 	top: 160px;
 	right: 300px;
@@ -34,7 +34,7 @@ body { /*全体*/
 .priority{
 	display:inline;
 	position: relative;
-	top: -280px;
+	top: -150px;
 	left: 400px;
 }
 .prioritybox{
@@ -43,8 +43,8 @@ body { /*全体*/
 	top: 30px;
 	left: 70px;
 
-	width: 120px;
-  height: 120px;
+	width: 60px;
+  height: 60px;
   border-radius: 50%;
   background: skyblue;
 }
@@ -52,34 +52,35 @@ body { /*全体*/
 .color{
 	display:inline;
 	position: relative;
-	top: -200px;
-	left: 530px;
+	top: -190px;
+	left: 580px;
 }
 .colorbox{
 	display:inline;
 	position: relative;
-	top: 0px;
-	left: 120px;
-
-	width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: skyblue;
-}
-.goal{
-	display:inline;
-	position: relative;
-	top: -160px;
-	left:750px;
-}
-.goalbox{
-	display:inline;
-	position: relative;
-	top: -200px;
-	left: 850px;
+	top: 13px;
+	left: 90px;
 
 	width: 60px;
   height: 60px;
   border-radius: 50%;
   background: skyblue;
 }
+.goal{
+	display:inline;
+	position: relative;
+	top: -250px;
+	left:750px;
+}
+button {/*表示ボタン*/
+  border: none;
+   background: transparent;
+
+}
+.checkbox {
+	width: 60px;
+  height: 60px;
+  top: -480px;
+	left:960px;
+}
+
