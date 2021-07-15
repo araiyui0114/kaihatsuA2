@@ -22,7 +22,7 @@
 		<tr>
 			<th rowspan="2"><div><input class="check" type="checkbox" th:id="${ToDo.code}" name="checkbox" th:value="${ToDo.code}"></div></th>
 			<td th:style="|color: ${ToDo.colorCode}|"th:text="${ToDo.contents}"></td>
-			<th rowspan="2"><img th:src="@{'/' + ${rankText}}" width="100px" height="100px"></th>
+			<th rowspan="2"><img th:src="@{'/images/' + ${ToDo.rankText}}" width="50px" height="50px"></th>
 			<!-- <th rowspan="2">
 				<div>
 					<form action="/delete" method="get">
