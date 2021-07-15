@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>ログイン画面</title>
@@ -12,11 +12,16 @@
 
 <form action="/login" method="post">
 	<input type="text" name="name" placeholder="name">
+
 		<br><br>
-	<button type="submit"><img src="/../loginB.PNG" width="300px" height="300px"></button>
+	<button type="submit"><img src="/../loginB.PNG" width="150px" height="72px"></button>
 	<br>
 	<span th:text="${message}" style="color:red"></span>
 </form>
+
+<a href="/users/new">新規登録</a>
+<a href="/users/edit">登録情報変更</a>
+<a href="/users/delete">登録情報削除</a>
 
 </body>
 </html>

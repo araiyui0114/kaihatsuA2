@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>登録情報更新</title>
+<link th:href="@{/login.css}" rel="stylesheet">
+</head>
+<body>
+<h1>登録情報更新</h1>
+<form action="/edit" method="post">
+		<table>
+		<tr>
+			<td>コード</td>
+			<td><input type="text" name="code" th:value="${code}"></td>
+		</tr>
+		<tr>
+			<td>名前</td>
+			<td><input type="text" name="name" th:value="${name}"></td>
+		</tr>
+		<tr>
+			<td>メールアドレス</td>
+			<td><input type="text" name="email" th:value="${email}"></td>
+		</tr>
+		<tr>
+			<td>パスワード</td>
+			<td><input type="text" name="password" th:value="${password}"></td>
+		</tr>
+		</table>
+		<input type="submit" value="更新">
+	</form>
+</body>
+</html>

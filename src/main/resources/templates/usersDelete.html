@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>会員削除</title>
+<link th:href="@{/addUser.css}" rel="stylesheet">
+</head>
+<body>
+<h1>会員削除</h1>
+
+<form action="/users/delete/now">
+		<table>
+		<tr>
+			<td>名前</td>
+			<td><input type="text" name="name"></td>
+		</tr>
+		</table>
+		<input type="submit" value="削除">
+	</form>
+	<span th:text="${message}" style="color:red"></span>
+	<br>
+	<a href="/">top</a>
+</body>
+</html>
