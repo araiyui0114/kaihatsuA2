@@ -19,10 +19,9 @@ h1{
 }
 .todo{
 	display:inline;
-	margin: 60px 50px 20px -300px;
 	position: relative;
 	top: 80px;
-	right: 300px;
+	left: -500px;
 }
 .date{
 	display:inline;
@@ -34,14 +33,14 @@ h1{
 .priority{
 	display:inline;
 	position: relative;
-	top: -150px;
-	left: 400px;
+	top: -50px;
+	left: -50px;
 }
 .prioritybox{
 	display:inline;
 	position: relative;
-	top: 30px;
-	left: 70px;
+	top: -30px;
+	left: 180px;
 
 	width: 60px;
   height: 60px;
@@ -52,14 +51,14 @@ h1{
 .color{
 	display:inline;
 	position: relative;
-	top: -190px;
-	left: 580px;
+	top: -120px;
+	left: 300px;
 }
 .colorbox{
 	display:inline;
 	position: relative;
-	top: 13px;
-	left: 90px;
+	top: -90px;
+	left: 100px;
 
 	width: 60px;
   height: 60px;
@@ -70,7 +69,7 @@ h1{
 	display:inline;
 	position: relative;
 	top: -250px;
-	left:750px;
+	left:550px;
 }
 button {/*表示ボタン*/
 display:inline;
@@ -83,7 +82,7 @@ display:inline;
 .checkbox {
 	width: 60px;
   height: 60px;
-  top: -480px;
-	left:960px;
+  top: -300px;
+	left:580px;
 }
 
