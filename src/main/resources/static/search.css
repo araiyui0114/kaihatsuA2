@@ -37,14 +37,14 @@ h1 {
 .priority {
 	display: inline;
 	position: relative;
-	top: 0px;
+	top: 20px;
 	left: -300px;
 }
 
 .prioritybox {
 	display: inline;
 	position: relative;
-	top: 20px;
+	top: -5px;
 	left: 475px;
 	width: 60px;
 	height: 60px;
@@ -83,7 +83,7 @@ button { /*表示ボタン！*/
 	display: inline;
 	border: none;
 	background: transparent;
-	bottom: 100px;
+	bottom: 0px;
 	position: relative;
 }
 
