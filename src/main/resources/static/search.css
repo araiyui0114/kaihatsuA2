@@ -73,11 +73,11 @@ h1{
 	left:750px;
 }
 button {/*表示ボタン*/
+display:inline;
   border: none;
   background: transparent;
-  top: 500px;
-  display:inline;
-  position: absolute;
+  bottom: 0px;
+  position: relative;
 
 }
 .checkbox {
