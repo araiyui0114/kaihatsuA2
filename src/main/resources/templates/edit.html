@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>更新画面</title>
-<link th:href="@{/edit.css}" rel="stylesheet">
+<link th:href="@{/search.css}" rel="stylesheet">
 </head>
 <body>
 <header>
@@ -13,45 +13,50 @@
 <h2>
 <form action="/todo/edit" method="post">
 
-<p>
-番号
-<input type="text" name="code" th:value="${code}">
-</p>
+
+<input type="hidden" name="code" th:value="${code}">
 
 <span th:each="ToDo:${todoList}">
 
-<p>
-ToDo
-<input type="text" name="contents" th:value="${ToDo.contents}">
+<p class="todo">
+<img src="/../todo.PNG" width="100px" height="50px">
+<input  type="text" name="contents" th:value="${ToDo.contents}">
+</p>
+<p class="date">
+<img src="/../date.PNG" width="100px" height="50px">
+<input  type="date" name="date" th:value="${ToDo.date}">
 </p>
 
-<p>
-期日
-<input type="text" name="date" th:value="${ToDo.date}">
-</p>
-
-<p>
-優先順位<br>
-<select name="rank" th:value="${ToDo.rank}">
-<option value=1 th:selected="${ToDo.rank == 1}">!!!
-<option value=2 th:selected="${ToDo.rank == 2}">!!
-<option value=3 th:selected="${ToDo.rank == 3}">!
+<p class="priority">
+<img src="/../priority.PNG" width="100px" height="50px">
+<br>
+<select class="prioritybox"  name="rank" th:value="${ToDo.rank}">
+<option value="0">
+<option value="1" th:selected="${ToDo.rank == 1}">!!!
+<option value="2" th:selected="${ToDo.rank == 2}">!!
+<option value="3" th:selected="${ToDo.rank == 3}">!
 </select>
 </p>
 
-<p>
-テキストの色<br>
-<select name="color" th:value="${ToDo.color}" id="colors">
+<p class="color">
+<img src="/../colors.PNG" width="100px" height="50px">
+<br>
+<select class="colorbox" name="color" th:value="${ToDo.color}">
+<option value="0">
 <option value=1 th:selected="${ToDo.color == 1}">&#x1f7e5;
 <option value=2 th:selected="${ToDo.color == 2}">&#x1f7e6;
 <option value=3 th:selected="${ToDo.color == 3}">&#x1f7e8;
 </select>
 </p>
-</span>
 
-<p>
-目標に追加
-<div><input type="checkbox" name="goal"></div>
+<p  class="goal">
+<img src="/../addGaol(ENG).PNG" width="100px" height="50px">
+</p>
+
+<br>
+<p><input class="checkbox" type="checkbox" name="goal" th:value="contents"></p>
+
+</span>
 
 <button type="submit"><img src="/../editB.PNG" width="150px" height="72px"></button>
 </p>
