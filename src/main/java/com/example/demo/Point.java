@@ -35,6 +35,13 @@ public class Point {
 			this.point = point;
 		}
 
+	public Point(Integer usersCode, Integer point) {
+		super();
+		this.usersCode = usersCode;
+		this.point = point;
+	}
+
+
 	//アクセスメソッド
 	public Integer getCode() {
 		return code;
