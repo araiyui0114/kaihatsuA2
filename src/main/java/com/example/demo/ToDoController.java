@@ -66,9 +66,12 @@ public class ToDoController {
         public ModelAndView colorList(
                 @RequestParam("colors")int color,
                 ModelAndView mv) {
+    	Users usersInfo = (Users) session.getAttribute("usersInfo");
+
+    	int usersid = usersInfo.getCode();
 
         //DBからリストを取得
-        List<ToDo> todoList = todoRepository.findByColor(color);
+        List<ToDo> todoList = todoRepository.findByUsersidAndColor(usersid,color);
 
         //Thymeleafに設定
         mv.addObject("todoList", todoList);

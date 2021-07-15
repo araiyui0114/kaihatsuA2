@@ -22,6 +22,9 @@ public interface ToDoRepository extends JpaRepository<ToDo, Integer>{
 	//usersidの検索
 	List<ToDo> findByUsersid( int usersid);
 
+	//usersidの検索
+		List<ToDo> findByUsersidAndColor( int usersid,int color);
+
 	//contents,dateのあいまい検索
 	List<ToDo> findByContentsLikeAndDateLike( String contents, String date);
 	//contents,date,rankのあいまい検索
