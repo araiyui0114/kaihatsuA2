@@ -83,8 +83,12 @@ button { /*表示ボタン！*/
 	display: inline;
 	border: none;
 	background: transparent;
-	bottom: 0px;
-	position: relative;
+}
+
+.button1 {
+	top: 700px;
+	position: absolute;
+	left:700px;
 }
 
 .checkbox {
