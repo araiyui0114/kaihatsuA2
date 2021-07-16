@@ -134,10 +134,8 @@ public class AccountController {
 			Point usersPoint = new Point(userscode,point);
 
 			//ProductエンティティをProductsテーブルに登録
-			//INSERT INTO Products (name.price) VALUES ("ブルーベリー",2000);
+			@SuppressWarnings("unused")
 			Point newP = pointRepository.saveAndFlush(usersPoint);
-
-
 
 			//Thymeleafで表示する準備
 
@@ -205,7 +203,7 @@ public class AccountController {
 					Users user = new Users(code,name,email,password);
 
 					//ProductエンティティをProductsテーブルに登録
-					//INSERT INTO Products (name.price) VALUES ("ブルーベリー",2000);
+					@SuppressWarnings("unused")
 					Users newU = usersRepository.saveAndFlush(user);
 
 			mv.setViewName("login");

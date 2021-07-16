@@ -163,6 +163,7 @@ public class ToDoController {
                 @RequestParam("date")String date,
                 @RequestParam("rank")int rank,
                 @RequestParam("color")int color,
+
                 //複数項目の取り出し
                 @RequestParam(name= "goal", required=false)String[] goal,
                 ModelAndView mv) {
@@ -239,39 +240,6 @@ public class ToDoController {
             mv.setViewName("top");
             return mv;
         }
-
-//		//全件削除
-//		@RequestMapping(value = "/allDelete")
-//		public ModelAndView delete(ModelAndView mv) {
-//
-//			todoRepository.delete(ToDo entity);
-//
-//			top(mv);
-//
-//			mv.setViewName("top");
-//			return mv;
-//		}
-
-//		//リスト削除
-//				@RequestMapping(value = "/listDelete")
-//				public ModelAndView listDelete(
-//						@RequestParam("color")int color,
-//						ModelAndView mv) {
-//
-//					//取得したカラーのリストを抽出
-//					List<ToDo> todoList = null;
-//					todoList = todoRepository.findByColor(color);
-//
-//					//
-//					todoRepository.deleteByToDoList(todoList);
-//
-//					top(mv);
-//
-//					mv.setViewName("top");
-//					return mv;
-//				}
-
-
 
         //検索
         @RequestMapping(value = "/todo/search" )
