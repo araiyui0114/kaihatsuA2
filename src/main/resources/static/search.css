@@ -62,8 +62,8 @@ h1 {
 .colorbox {
 	display: inline;
 	position: relative;
-	top: -10px;
-	left: 100px;
+	top: 0px;
+	left: 30px;
 	width: 60px;
 	height: 60px;
 	border-radius: 50%;

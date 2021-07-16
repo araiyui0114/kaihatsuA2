@@ -289,50 +289,54 @@ public class ToDoController {
                 @RequestParam("color")int color
                 ) {
 
+        	Users usersInfo = (Users) session.getAttribute("usersInfo");
+
+        	int usersid = usersInfo.getCode();
+
             List<ToDo> todoList = null;
 
             //全件検索
             if (contents.equals("") && date.equals("") && rank == 0 && color == 0) {
-                todoList = todoRepository.findAll();
+                todoList = todoRepository.findByUsersid(usersid);
             //contentsあいまい検索
-            }else if(!(contents.equals("")) && date.equals("") && rank == 0 && color == 0) {
-                todoList = todoRepository.findByContentsLike("%" + contents + "%");
+            }else if(!(contents.equals("")) && date.equals("") && rank == 0 && color == 0 && usersid != 0) {
+                todoList = todoRepository.findByContentsLikeAndUsersid("%" + contents + "%",usersid);
             //dateあいまい検索
-            }else if(contents.equals("") && !(date.equals("")) && rank == 0 && color == 0) {
-                todoList = todoRepository.findByDateLike("%" + date + "%");
+            }else if(contents.equals("") && !(date.equals("")) && rank == 0 && color == 0 && usersid != 0) {
+                todoList = todoRepository.findByDateLikeAndUsersid("%" + date + "%",usersid);
             //rank検索
-            }else if(contents.equals("") && date.equals("") && rank != 0 && color == 0) {
-                todoList = todoRepository.findByRank(rank);
+            }else if(contents.equals("") && date.equals("") && rank != 0 && color == 0 && usersid != 0) {
+                todoList = todoRepository.findByRankAndUsersid(rank,usersid);
             //color検索
-            }else if(contents.equals("") && date.equals("") && rank == 0 && color != 0) {
-                todoList = todoRepository.findByColor(color);
+            }else if(contents.equals("") && date.equals("") && rank == 0 && color != 0 && usersid != 0 ){
+                todoList = todoRepository.findByUsersidAndColor(color,usersid);
             //contents,dateのあいまい検索
-            }else if(!(contents.equals("")) && !(date.equals("")) && rank == 0 && color == 0) {
-                todoList = todoRepository.findByContentsLikeAndDateLike("%" + contents + "%","%" + date + "%");
+            }else if(!(contents.equals("")) && !(date.equals("")) && rank == 0 && color == 0 && usersid != 0) {
+                todoList = todoRepository.findByContentsLikeAndDateLikeAndUsersid("%" + contents + "%","%" + date + "%",usersid);
             //contents,date,rankのあいまい検索
-            }else if(!(contents.equals("")) && !(date.equals("")) && rank != 0 && color == 0) {
-                todoList = todoRepository.findByContentsLikeAndDateLikeAndRank("%" + contents + "%","%" + date + "%",rank);
+            }else if(!(contents.equals("")) && !(date.equals("")) && rank != 0 && color == 0 && usersid != 0) {
+                todoList = todoRepository.findByContentsLikeAndDateLikeAndRankAndUsersid("%" + contents + "%","%" + date + "%",rank,usersid);
             //contents,date,rank,colorのあいまい検索
-            }else if(!(contents.equals("")) && !(date.equals("")) && rank != 0 && color != 0) {
-                todoList = todoRepository.findByContentsLikeAndDateLikeAndRankAndColor("%" + contents + "%","%" + date + "%",rank,color);
+            }else if(!(contents.equals("")) && !(date.equals("")) && rank != 0 && color != 0 && usersid != 0) {
+                todoList = todoRepository.findByContentsLikeAndDateLikeAndRankAndColorAndUsersid("%" + contents + "%","%" + date + "%",rank,color,usersid);
             //date,rank,colorのあいまい検索
-            }else if(contents.equals("") && !(date.equals("")) && rank != 0 && color != 0) {
-                todoList = todoRepository.findByDateLikeAndRankAndColor("%" + date + "%",rank,color);
+            }else if(contents.equals("") && !(date.equals("")) && rank != 0 && color != 0 && usersid != 0) {
+                todoList = todoRepository.findByDateLikeAndRankAndColorAndUsersid("%" + date + "%",rank,color,usersid);
             //date,rankのあいまい検索
-            }else if(contents.equals("") && !(date.equals("")) && rank != 0 && color == 0) {
-                todoList = todoRepository.findByDateLikeAndColor("%" + date + "%",rank);
+            }else if(contents.equals("") && !(date.equals("")) && rank != 0 && color == 0 && usersid != 0) {
+                todoList = todoRepository.findByDateLikeAndColorAndUsersid("%" + date + "%",rank,usersid);
             //date,colorのあいまい検索
-            }else if(contents.equals("") && !(date.equals("")) && rank == 0 && color != 0) {
-                todoList = todoRepository.findByDateLikeAndColor("%" + date + "%",color);
+            }else if(contents.equals("") && !(date.equals("")) && rank == 0 && color != 0 && usersid != 0) {
+                todoList = todoRepository.findByDateLikeAndColorAndUsersid("%" + date + "%",color,usersid);
             //contents,date,rank,colorのあいまい検索
-            }else if(contents.equals("") && date.equals("") && rank != 0 && color != 0) {
-                todoList = todoRepository.findByRankAndColor(rank,color);
+            }else if(contents.equals("") && date.equals("") && rank != 0 && color != 0 && usersid != 0) {
+                todoList = todoRepository.findByRankAndColorAndUsersid(rank,color,usersid);
             //contents,colorのあいまい検索
-            }else if(!(contents.equals("")) && date.equals("") && rank == 0 && color != 0) {
-                todoList = todoRepository.findByContentsLikeAndColor("%" + contents + "%",color);
+            }else if(!(contents.equals("")) && date.equals("") && rank == 0 && color != 0 && usersid != 0) {
+                todoList = todoRepository.findByContentsLikeAndColorAndUsersid("%" + contents + "%",color,usersid);
             //contents,date,rank,colorのあいまい検索
-            }else if(!(contents.equals("")) && date.equals("") && rank != 0 && color != 0) {
-                todoList = todoRepository.findByContentsLikeAndRankAndColor("%" + contents + "%",rank,color);
+            }else if(!(contents.equals("")) && date.equals("") && rank != 0 && color != 0 && usersid != 0) {
+                todoList = todoRepository.findByContentsLikeAndRankAndColorAndUsersid("%" + contents + "%",rank,color,usersid);
             }
 
             //検索を結果リストに
