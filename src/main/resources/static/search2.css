@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c')
+	;
+
+body { /*全体*/
+	font-family: 'M PLUS Rounded 1c', sans-serif;
+	background-image: url('/../a.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: rgba(255, 255, 255, 0.6);
+	background-blend-mode: lighten;
+	background-attachment: fixed;
+	text-align: center;
+}
+
+h1 {
+	position: relative;
+	left: -200px;
+}
+
+.todo {
+	display: inline;
+	position: relative;
+	top: 0px;
+	left: -100px;
+}
+
+.date {
+	display: inline;
+	position: relative;
+	top: 100px;
+		left: -665px;
+
+}
+
+.priority {
+	display: inline;
+	position: relative;
+	top: 20px;
+	left: -200px;
+}
+
+.prioritybox {
+	display: inline;
+	position: relative;
+	top: -5px;
+	left: 475px;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	background: skyblue;
+}
+
+.color {
+	display: inline;
+	position: relative;
+	top: -50px;
+	left: 350px;
+}
+
+.colorbox {
+	display: inline;
+	position: relative;
+	top: 8px;
+	left: 40px;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	background: skyblue;
+}
+
+.goal {
+	display: inline;
+	position: relative;
+	top: -120px;
+	left: 550px;
+	height: 100px;
+
+}
+
+button { /*表示ボタン！*/
+	display: inline;
+	border: none;
+	background: transparent;
+}
+
+.button1 {
+	top: 700px;
+	position: absolute;
+	left:700px;
+}
+
+.checkbox {
+	width: 60px;
+	height: 60px;
+	top: -130px;
+	left: 580px;
+}
