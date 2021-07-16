@@ -153,7 +153,7 @@ public class AccountController {
 		//更新
 		@RequestMapping(value = "/users/edit" )
 		public ModelAndView edituser(ModelAndView mv) {
-			mv.setViewName("usersEdit");
+			mv.setViewName("nameCheck");
 			return mv;
 		}
 
@@ -164,7 +164,7 @@ public class AccountController {
 			//名前未入力
 			if(name == null || name.length() == 0) {
 				mv.addObject("message", "名前を入力してください");
-				mv.setViewName("usersEdit");
+				mv.setViewName("nameCheck");
 				return mv;
 			}
 			try {
@@ -188,7 +188,7 @@ public class AccountController {
 		//例外処理
 		}catch(IndexOutOfBoundsException e){
 			mv.addObject("message", "名前は登録されていません");
-			mv.setViewName("usersEdit");
+			mv.setViewName("nameCheck");
 			return mv;
 		}
 		}
