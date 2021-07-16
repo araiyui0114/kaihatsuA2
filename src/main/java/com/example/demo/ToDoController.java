@@ -43,7 +43,6 @@ public class ToDoController {
 
         //Thymeleafに設定
         mv.addObject("todoList", todoList);
-        mv.addObject("rankText","high.PNG" );
 
         //対象のタスクの取得
 		List<Point> pointList = null;
