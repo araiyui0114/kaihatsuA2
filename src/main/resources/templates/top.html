@@ -4,57 +4,11 @@
 <meta charset="UTF-8">
 <title>トップ画面</title>
 <link th:href="@{/top.css}" rel="stylesheet">
-</head>
-<body>
-<header>
-	<h1><img src="/../home.PNG" width="300px" height="300px"></h1>
-	<span th:replace="menu"></span><br>
-</header>
-<span class="main">
-	<h3>
-	<i class="gg-user"></i>
-		HELLO <span th:text="${session.name}"></span> さん<br><br>
-	</h3>
 
-	<h3>
-		～目標～<br><span th:style="|color: ${colorCode}|"th:text="${session.setGoal}"></span><br>
-	</h3>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/css/theme.default.min.css">
 
-	<table>
-		<span th:each="ToDo:${todoList}">
-		<tr>
-			<th rowspan="2"><div><input class="check" type="checkbox" th:id="${ToDo.code}" name="checkbox" th:value="${ToDo.code}" title="変更or完了"></div></th>
-			<td th:style="|color: ${ToDo.colorCode}|"th:text="${ToDo.contents}"></td>
-			<th rowspan="2"><img th:src="@{'/images/' + ${ToDo.rankText}}" width="50px" height="50px"></th>
-			<!-- <th rowspan="2">
-				<div>
-					<form action="/delete" method="get">
-						<input type="hidden" name="code" th:value="${ToDo.code}">
-						<button type="submit">削除</button>
-					</form>
-				</div> -->
-			</th>
-		</tr>
-
-		<tr>
-			<th th:text="${ToDo.date}"></th>
-		</tr>
-		</span>
-	</table>
- <form action="/colorList">
-	<table class="colorsTable">
-	<tr><th><span><font color="#990000">赤</font></span><div><input type="checkbox" name="colors" value=1></div></th>
-	<th><span><font color="#003366">青</font></span><div><input type="checkbox" name="colors" value=2></div></th>
-	<th><span><font color="#006400">緑</font></span><div><input type="checkbox" name="colors" value=3></div></th>
-	<th><button type="submit"><img src="/../display.png" width="80px" height="50px"></button></th></tr>
-	</table>
-	</form>
-	<br>
-	<a  class="gg-check-o" href="javascript:deleteTask();" title="✓いれて完了"></a>
-	<br>
-	所持ポイント<span class="point" th:text="${Point}"></span>P<br>
-	<div><a href="/logout"><img src="/../logout.png" width="150px" height="150px"></a></div>
-</span>
 <script type="text/javascript">
 function editTask() {
 	var xxx = document.querySelectorAll(".check");
@@ -78,6 +32,66 @@ function deleteTask() {
 		}
 }
 
+
+$(document).ready(function() {
+    $('#mainTable').tablesorter();
+});
 </script>
+
+</head>
+<body>
+<header>
+	<h1><img src="/../home.PNG" width="300px" height="300px"></h1>
+	<span th:replace="menu"></span><br>
+</header>
+<span class="main">
+	<h3>
+	<i class="gg-user"></i>
+		HELLO <span th:text="${session.name}"></span> さん<br><br>
+	</h3>
+
+	<h3>
+		～目標～<br><span th:style="|color: ${colorCode}|"th:text="${session.setGoal}"></span><br>
+	</h3>
+
+	<table id ="mainTable">
+		<thead>
+		<tr><th>日付</th></tr>
+		<tbody>
+		<span th:each="ToDo:${todoList}">
+		<tr>
+			<th rowspan="2"><div><input class="check" type="checkbox" th:id="${ToDo.code}" name="checkbox" th:value="${ToDo.code}" title="変更or完了"></div></th>
+			<td th:style="|color: ${ToDo.colorCode}|"th:text="${ToDo.contents}"></td>
+			<th rowspan="2"><img th:src="@{'/images/' + ${ToDo.rankText}}" width="50px" height="50px"></th>
+			<!-- <th rowspan="2">
+				<div>
+					<form action="/delete" method="get">
+						<input type="hidden" name="code" th:value="${ToDo.code}">
+						<button type="submit">削除</button>
+					</form>
+				</div> -->
+			</th>
+		</tr>
+
+		<tr>
+			<th th:text="${ToDo.date}"></th>
+		</tr>
+		</span></tbody>
+	</table>
+ <form action="/colorList">
+	<table class="colorsTable">
+	<tr><th><span><font color="#990000">赤</font></span><div><input type="checkbox" name="colors" value=1></div></th>
+	<th><span><font color="#003366">青</font></span><div><input type="checkbox" name="colors" value=2></div></th>
+	<th><span><font color="#006400">緑</font></span><div><input type="checkbox" name="colors" value=3></div></th>
+	<th><button type="submit"><img src="/../display.png" width="80px" height="50px"></button></th></tr>
+	</table>
+	</form>
+	<br>
+	<a  class="gg-check-o" href="javascript:deleteTask();" title="✓いれて完了"></a>
+	<br>
+	所持ポイント<span class="point" th:text="${Point}"></span>P<br>
+	<div><a href="/logout"><img src="/../logout.png" width="150px" height="150px"></a></div>
+</span>
+
 </body>
 </html>
