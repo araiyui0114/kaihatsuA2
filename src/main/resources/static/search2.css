@@ -12,8 +12,7 @@ body { /*全体*/
 	background-blend-mode: lighten;
 	background-attachment: fixed;
 	text-align: center;
-	  padding-top:20em;
-}
+	}
 
 h1 {
 	position: relative;
