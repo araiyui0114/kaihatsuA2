@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>会員削除</title>
-<link th:href="@{/addUser.css}" rel="stylesheet">
+<link th:href="@{/login.css}" rel="stylesheet">
 </head>
 <body>
 <h1>会員削除</h1>
@@ -15,10 +15,11 @@
 			<td><input type="text" name="name"></td>
 		</tr>
 		</table>
-		<input type="submit" value="削除">
+	<button><a class="gg-check-o"><input type="hidden"></a></button>
 	</form>
 	<span th:text="${message}" style="color:red"></span>
+
 	<br>
-	<a href="/">top</a>
+	<a href="/" class="btn-border-bottom">top</a>
 </body>
 </html>
