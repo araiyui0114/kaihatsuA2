@@ -5,10 +5,6 @@
 <title>トップ画面</title>
 <link th:href="@{/top.css}" rel="stylesheet">
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/css/theme.default.min.css">
-
 <script type="text/javascript">
 function editTask() {
 	var xxx = document.querySelectorAll(".check");
@@ -32,10 +28,6 @@ function deleteTask() {
 		}
 }
 
-
-$(document).ready(function() {
-    $('#mainTable').tablesorter();
-});
 </script>
 
 </head>
@@ -54,23 +46,12 @@ $(document).ready(function() {
 		～目標～<br><span th:style="|color: ${colorCode}|"th:text="${session.setGoal}"></span><br>
 	</h3>
 
-	<table id ="mainTable">
-		<thead>
-		<tr><th>日付</th></tr>
-		<tbody>
+	<table>
 		<span th:each="ToDo:${todoList}">
 		<tr>
 			<th rowspan="2"><div><input class="check" type="checkbox" th:id="${ToDo.code}" name="checkbox" th:value="${ToDo.code}" title="変更or完了"></div></th>
 			<td th:style="|color: ${ToDo.colorCode}|"th:text="${ToDo.contents}"></td>
 			<th rowspan="2"><img th:src="@{'/images/' + ${ToDo.rankText}}" width="50px" height="50px"></th>
-			<!-- <th rowspan="2">
-				<div>
-					<form action="/delete" method="get">
-						<input type="hidden" name="code" th:value="${ToDo.code}">
-						<button type="submit">削除</button>
-					</form>
-				</div> -->
-			</th>
 		</tr>
 
 		<tr>
