@@ -36,17 +36,18 @@ public class AccountController {
 		return "login";
 	}
 
-	//登録済みの名前でログイン
+	//登録済みの名前とパスワードでログイン
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public ModelAndView doLogin(
 			@RequestParam("name") String name,
+			@RequestParam("password") String password,
 			ModelAndView mv
 	) {
-		//Usersテーブルから名前を照合
-		List<Users> usersList = usersRepository.findByName(name);
+		//Usersテーブルから名前とパスワードを照合
+		List<Users> usersList = usersRepository.findByNameAndPassword(name,password);
 
-		//名前未入力
-		if(name == null || name.length() == 0) {
+		//未入力
+		if(name == null || name.length() == 0 || password == null || password.length() == 0) {
 			mv.addObject("message", "名前を入力してください");
 			mv.setViewName("login");
 			return mv;
@@ -78,7 +79,7 @@ public class AccountController {
 
 		//例外処理
 		}catch(IndexOutOfBoundsException e){
-			mv.addObject("message", "名前は登録されていません");
+			mv.addObject("message", "名前または、パスワードが違います");
 			mv.setViewName("login");
 		}
 
@@ -120,8 +121,34 @@ public class AccountController {
 			//登録するUserエンティティのインスタンスを生成
 			Users users = new Users(name,email,password);
 
-			//ProductエンティティをProductsテーブルに登録
-			//INSERT INTO Products (name.price) VALUES ("ブルーベリー",2000);
+			//項目の重複を禁止する（名前とメアド被り不可）
+			try{
+				//重複チェック（名前）
+				try{
+					List<Users> usersList = usersRepository.findByName(name);
+					Users users2 = usersList.get(0);
+					String users2Name = users2.getName();
+
+					if(!(users2Name.equals(""))) {
+						mv.addObject("message", "入力した情報は既に登録済みです");
+						mv.setViewName("addUser");
+						return mv;
+					}
+				//重複チェック（メアド）
+				}catch (Exception e) {
+					List<Users> usersList = usersRepository.findByEmail(email);
+					Users users2 = usersList.get(0);
+					String users2Email = users2.getEmail();
+
+					if(!(users2Email.equals(""))) {
+						mv.addObject("message", "入力した情報は既に登録済みです");
+						mv.setViewName("addUser");
+						return mv;
+					}
+				}
+			}catch (Exception e) {
+
+			//UsersエンティティをUsersテーブルに登録
 			Users newU = usersRepository.saveAndFlush(users);
 
 			//登録したエンティティのコードを取得
@@ -142,12 +169,11 @@ public class AccountController {
 			mv.addObject("CODE",code);
 
 			mv.setViewName("login");
-
-				return mv;
 		}
+		return mv;
 
 
-
+		}
 		//更新
 		@RequestMapping(value = "/users/edit" )
 		public ModelAndView edituser(ModelAndView mv) {
