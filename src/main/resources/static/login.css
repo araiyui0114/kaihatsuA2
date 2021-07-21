@@ -61,7 +61,7 @@ input {
 input[type='text'] {
 	font: 15px/24px sans-serif;
 	box-sizing: border-box;
-	width: 30%;
+	width: 40%;
 	padding: 0.3em;
 	transition: 0.3s;
 	letter-spacing: 1px;
@@ -71,6 +71,26 @@ input[type='text'] {
 	background: transparent;
 }
 input[type='text']:focus {
+	border-bottom: 2px solid #da3c41;
+	outline: none;
+}
+input {
+	position: relative;
+	width:10%;
+}
+input[type='password'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 40%;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: #aaaaaa;
+	border: none;
+	border-bottom: 2px solid #1b2538;
+	background: transparent;
+}
+input[type='password']:focus {
 	border-bottom: 2px solid #da3c41;
 	outline: none;
 }
@@ -233,7 +253,7 @@ select { /*プルダウン*/
  height: 20px;
  border-radius: 30px;
  top: 20px;
- left: 482px
+ left: 70px
 }
 
 .gg-user::after {/*ユーザー*/
@@ -243,11 +263,17 @@ select { /*プルダウン*/
  border-top-left-radius: 3px;
  border-top-right-radius: 3px;
  top: 40px;
-  left: 480px;
+  left: 67px;
 }
 
 h1:first-letter {/*見出し*/
   font-size: 2em;
   color: #7172ac;
 }
-
+div{
+  background-color: #C0C0C0;
+  background-size: 15px;
+  width: 400px;
+   margin-left: auto;
+    margin-right: auto;
+}
