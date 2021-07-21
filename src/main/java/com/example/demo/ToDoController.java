@@ -36,8 +36,6 @@ public class ToDoController {
 
     	int usersid = usersInfo.getCode();
 
-    	System.out.println("usersid=" + usersid);
-
         //DBからリストを取得
         List<ToDo> todoList = todoRepository.findByUsersid(usersid);
 
@@ -313,5 +311,65 @@ public class ToDoController {
             mv.setViewName("searchResult");
             return mv;
         }
+
+
+
+		//ソート（昇順）
+		@RequestMapping(value = "/upsort")
+		public ModelAndView upSort(ModelAndView mv) {
+			Users usersInfo = (Users) session.getAttribute("usersInfo");
+
+	    	int usersid = usersInfo.getCode();
+
+	        //DBからリストを取得
+	        List<ToDo> todoList = todoRepository.findByUsersidOrderByDate(usersid);
+
+	        //Thymeleafに設定
+	        mv.addObject("todoList", todoList);
+
+	        //対象のタスクの取得
+			List<Point> pointList = null;
+			pointList = pointRepository.findByUsersCode(usersid);
+
+			Point point = pointList.get(0);
+
+			Integer usersPoint = point.getPoint();
+
+	        mv.addObject("Point",usersPoint);
+
+	        //top.htmlに設定
+	        mv.setViewName("top");
+
+			return mv;
+		}
+		//ソート（降順）
+		@RequestMapping(value = "/downsort")
+		public ModelAndView downSort(ModelAndView mv) {
+			Users usersInfo = (Users) session.getAttribute("usersInfo");
+
+	    	int usersid = usersInfo.getCode();
+
+	        //DBからリストを取得
+	        List<ToDo> todoList = todoRepository.findByUsersidOrderByDateDesc(usersid);
+
+	        //Thymeleafに設定
+	        mv.addObject("todoList", todoList);
+
+	        //対象のタスクの取得
+			List<Point> pointList = null;
+			pointList = pointRepository.findByUsersCode(usersid);
+
+			Point point = pointList.get(0);
+
+			Integer usersPoint = point.getPoint();
+
+	        mv.addObject("Point",usersPoint);
+
+	        //top.htmlに設定
+	        mv.setViewName("top");
+
+			return mv;
+		}
+
 
 }
