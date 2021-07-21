@@ -53,5 +53,10 @@ public interface ToDoRepository extends JpaRepository<ToDo, Integer>{
 	//useridで抽出し、日付降順
 	List<ToDo> findByUsersidOrderByDateDesc(int usersid);
 
+	//useridで抽出し、優先順位昇順
+	List<ToDo> findByUsersidOrderByRank(int usersid);
+	//useridで抽出し、優先順位降順
+	List<ToDo> findByUsersidOrderByRankDesc(int usersid);
+
 }
 

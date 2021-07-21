@@ -314,7 +314,7 @@ public class ToDoController {
 
 
 
-		//ソート（昇順）
+		//ソート（日付昇順）
 		@RequestMapping(value = "/upsort")
 		public ModelAndView upSort(ModelAndView mv) {
 			Users usersInfo = (Users) session.getAttribute("usersInfo");
@@ -342,7 +342,7 @@ public class ToDoController {
 
 			return mv;
 		}
-		//ソート（降順）
+		//ソート（日付降順）
 		@RequestMapping(value = "/downsort")
 		public ModelAndView downSort(ModelAndView mv) {
 			Users usersInfo = (Users) session.getAttribute("usersInfo");
@@ -370,6 +370,61 @@ public class ToDoController {
 
 			return mv;
 		}
+		//ソート（優先順位昇順）
+		@RequestMapping(value = "/rankupsort")
+		public ModelAndView rankUpSort(ModelAndView mv) {
+			Users usersInfo = (Users) session.getAttribute("usersInfo");
 
+	    	int usersid = usersInfo.getCode();
+
+	        //DBからリストを取得
+	        List<ToDo> todoList = todoRepository.findByUsersidOrderByRank(usersid);
+
+	        //Thymeleafに設定
+	        mv.addObject("todoList", todoList);
+
+	        //対象のタスクの取得
+			List<Point> pointList = null;
+			pointList = pointRepository.findByUsersCode(usersid);
+
+			Point point = pointList.get(0);
+
+			Integer usersPoint = point.getPoint();
+
+	        mv.addObject("Point",usersPoint);
+
+	        //top.htmlに設定
+	        mv.setViewName("top");
+
+			return mv;
+		}
+		//ソート（優先順位降順）
+				@RequestMapping(value = "/rankdownsort")
+				public ModelAndView rankDownSort(ModelAndView mv) {
+					Users usersInfo = (Users) session.getAttribute("usersInfo");
+
+			    	int usersid = usersInfo.getCode();
+
+			        //DBからリストを取得
+			        List<ToDo> todoList = todoRepository.findByUsersidOrderByRankDesc(usersid);
+
+			        //Thymeleafに設定
+			        mv.addObject("todoList", todoList);
+
+			        //対象のタスクの取得
+					List<Point> pointList = null;
+					pointList = pointRepository.findByUsersCode(usersid);
+
+					Point point = pointList.get(0);
+
+					Integer usersPoint = point.getPoint();
+
+			        mv.addObject("Point",usersPoint);
+
+			        //top.htmlに設定
+			        mv.setViewName("top");
+
+					return mv;
+				}
 
 }

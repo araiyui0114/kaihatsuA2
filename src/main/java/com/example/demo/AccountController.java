@@ -48,7 +48,7 @@ public class AccountController {
 
 		//未入力
 		if(name == null || name.length() == 0 || password == null || password.length() == 0) {
-			mv.addObject("message", "名前を入力してください");
+			mv.addObject("message", "名前・パスワードを入力してください");
 			mv.setViewName("login");
 			return mv;
 		}
