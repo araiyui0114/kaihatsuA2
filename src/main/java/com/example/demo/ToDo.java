@@ -142,7 +142,7 @@ public class ToDo {
 				}else if(color == 2) {
 					colorCode = "#0000ff";
 				}else if(color == 3) {
-					colorCode = "#ffff00";
+					colorCode = "#006400";
 				}
 				return colorCode;
 			}

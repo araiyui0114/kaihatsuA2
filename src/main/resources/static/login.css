@@ -12,10 +12,6 @@ body { /*全体*/
 	background-blend-mode: lighten;
 }
 
-h1{
-	position: relative;
-	left: -500px;
-}
 
 table { /*テーブル、リスト*/
 	width: 50%;

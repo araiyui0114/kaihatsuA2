@@ -217,3 +217,8 @@ h1:first-letter {/*見出し*/
   font-size: 2em;
   color: #7172ac;
 }
+
+header {
+	position:fixed;
+	top:10px;
+}

@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
 
 body { /*全体*/
+    background-attachment: fixed;
     text-align:center;
 	font-family: 'M PLUS Rounded 1c', sans-serif;
 	background-image: url('/../backG.jpg');
@@ -102,7 +103,7 @@ select { /*プルダウン*/
   color: #000;
   position: absolute;
   display:inline;
-  margin-top: -105px;
+  margin-top: -180px;
   margin-left: 300px;
   width: 55px;
   height: 55px;
@@ -127,7 +128,7 @@ select { /*プルダウン*/
   position: absolute;
    display:inline;
   margin-left: -100px;
-  margin-top: -70px;
+  margin-top: -150px;
 }
 
 .plus-icon-alt:before {/*登録*/
@@ -153,7 +154,7 @@ select { /*プルダウン*/
   position: absolute;
    display:inline;
   margin-left: 100px;
-  margin-top: -85px;
+  margin-top: -165px;
   width: 60px;
   height: 20px;
   border-radius: 1px;
@@ -188,8 +189,8 @@ select { /*プルダウン*/
  border-radius: 2px;
  border-bottom-left-radius: 3px;
  border-bottom-right-radius: 3px;
- margin-top:-80px;
- left: 500px;
+ margin-top:-165px;
+ left: 480px;
 }
 
 .gg-home-alt::after,
