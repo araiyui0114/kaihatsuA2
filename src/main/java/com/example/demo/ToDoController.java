@@ -1,7 +1,6 @@
 package com.example.demo;
 
 import java.util.List;
-import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 
@@ -144,11 +143,11 @@ public class ToDoController {
                 ModelAndView mv) {
 
         		//対象のタスクの取得
-        		List<ToDo> todoList = null;
-        		todoList = todoRepository.findByCode(code);
+        		ToDo todo = null;
+        		todo = todoRepository.findByCode(code);
 
         		mv.addObject("code",code);
-				mv.addObject("todoList",todoList);
+				mv.addObject("ToDo",todo);
 
             mv.setViewName("edit");
             return mv;
@@ -207,39 +206,18 @@ public class ToDoController {
                 @RequestParam("code")int code,
                 ModelAndView mv) {
 
-        	Optional<ToDo> record = todoRepository.findById(code);
-        	ToDo todo  = record.get();
-        	int usersid  = todo.getUsersid();
-
             todoRepository.deleteById(code);
-
-            //対象のタスクの取得
-    		List<Point> pointList = null;
-    		pointList = pointRepository.findByUsersCode(usersid);
-
-    		Point point = pointList.get(0);
-
-    		Integer usersPoint = point.getPoint();
-
-    		usersPoint += 10;
-
-    		point.setPoint(usersPoint);
-
-    		//ToDoエンティティをToDoテーブルに登録
-            pointRepository.saveAndFlush(point);
-
-            mv.addObject("Point",usersPoint);
 
             session.removeAttribute("setGoal");
             top(mv);
 
 
 
-            mv.setViewName("top");
+            mv.setViewName("searchResult");
             return mv;
         }
 
-        //削除(複数)
+        //完了(複数)
         @RequestMapping(value = "/deleteSome")
         public ModelAndView deleteSome(
                 @RequestParam(value = "code")int[] codes,
@@ -258,8 +236,20 @@ public class ToDoController {
     		Integer usersPoint = point.getPoint();
 
             for(int	 i =0; i < codes.length; i++) {
-            todoRepository.deleteById(codes[i]);
-            usersPoint += 10;
+            	//対象のタスクの取得
+            	ToDo todo = null;
+        		todo = todoRepository.findByCode(codes[i]);
+        		int rank = todo.getRank();
+
+        		todoRepository.deleteById(codes[i]);
+
+        		if(rank == 1) {
+            		usersPoint += 50;
+            	}else if(rank == 2) {
+            		usersPoint += 30;
+            	}else if(rank == 3) {
+            		usersPoint += 10;
+            	}
             }
 
    		 	point.setPoint(usersPoint);

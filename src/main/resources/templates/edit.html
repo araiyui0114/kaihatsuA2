@@ -16,8 +16,6 @@
 
 <input type="hidden" name="code" th:value="${code}">
 
-<span th:each="ToDo:${todoList}">
-
 <p class="todo">
 <img src="/../todo.PNG" width="100px" height="50px">
 <input  type="text" name="contents" th:value="${ToDo.contents}">
@@ -55,8 +53,6 @@
 
 <br>
 <p><input class="checkbox" type="checkbox" name="goal" th:value="contents"></p>
-
-</span>
 
 <div class="button1"><button type="submit"><img src="/../editB.PNG" width="150px" height="72px"></button></div>
 </p>
