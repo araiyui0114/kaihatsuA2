@@ -16,7 +16,7 @@ function editTask() {
 		}
 	}
 }
-
+/*
 function deleteTask() {
 	var xxx = document.querySelectorAll(".check");
 		for(var i =0; i < xxx.length; i++){
@@ -26,20 +26,23 @@ function deleteTask() {
 			location.href = "/delete?code=" + code;
 			}
 		}
-}
+}*/
 
 function deleteSomeTask() {
 	var xxx = document.querySelectorAll(".check");
-		for(var i =0; i < xxx.length; i++){
+			var codes =[];
+			for(var i =0; i < xxx.length; i++){
 
-			if (xxx[i].checked == true) {
-			var code = xxx[i].value;
-			const codeArray = Array.form(code);
-			location.href = "/deleteSome?code=" + codeArray;
+				if (xxx[i].checked == true) {
+				var code = xxx[i].value;
+				codes.push(code);
+				}else{
+
+				}
 			}
-		}
-}
 
+			location.href = "/deleteSome?code=" + codes;
+}
 </script>
 
 </head>
@@ -88,7 +91,7 @@ function deleteSomeTask() {
 	</table>
 	</form>
 	<br>
-	<a  class="gg-check-o" href="javascript:deleteTask();" title="✓いれて完了"></a>
+	<a  class="gg-check-o" href="javascript:deleteSomeTask();" title="✓いれて完了"></a>
 	<br>
 	所持ポイント<span class="point" th:text="${Point}"></span>P<br>
 	<div><a href="/logout"><img src="/../logout.png" width="150px" height="150px"></a></div>

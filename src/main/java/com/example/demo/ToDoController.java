@@ -242,17 +242,12 @@ public class ToDoController {
         //削除(複数)
         @RequestMapping(value = "/deleteSome")
         public ModelAndView deleteSome(
-                @RequestParam("code")int[] codes,
+                @RequestParam(value = "code")int[] codes,
                 ModelAndView mv) {
 
-        	Optional<ToDo> record = todoRepository.findById(hashCode());
-        	ToDo todo  = record.get();
-        	int usersid  = todo.getUsersid();
+        	Users usersInfo = (Users) session.getAttribute("usersInfo");
 
-            for(var i =0; i < codes.length; i++) {
-            todoRepository.deleteById(i);
-            }
-
+        	int usersid = usersInfo.getCode();
 
             //対象のタスクの取得
     		List<Point> pointList = null;
@@ -262,9 +257,12 @@ public class ToDoController {
 
     		Integer usersPoint = point.getPoint();
 
-    		usersPoint += 10;
+            for(int	 i =0; i < codes.length; i++) {
+            todoRepository.deleteById(codes[i]);
+            usersPoint += 10;
+            }
 
-    		point.setPoint(usersPoint);
+   		 	point.setPoint(usersPoint);
 
     		//ToDoエンティティをToDoテーブルに登録
             pointRepository.saveAndFlush(point);
