@@ -201,7 +201,7 @@ public class ToDoController {
                     return mv;
                 }
 
-        //削除
+        //削除(単一)
         @RequestMapping(value = "/delete")
         public ModelAndView delete(
                 @RequestParam("code")int code,
@@ -212,6 +212,47 @@ public class ToDoController {
         	int usersid  = todo.getUsersid();
 
             todoRepository.deleteById(code);
+
+            //対象のタスクの取得
+    		List<Point> pointList = null;
+    		pointList = pointRepository.findByUsersCode(usersid);
+
+    		Point point = pointList.get(0);
+
+    		Integer usersPoint = point.getPoint();
+
+    		usersPoint += 10;
+
+    		point.setPoint(usersPoint);
+
+    		//ToDoエンティティをToDoテーブルに登録
+            pointRepository.saveAndFlush(point);
+
+            mv.addObject("Point",usersPoint);
+
+            session.removeAttribute("setGoal");
+            top(mv);
+
+
+
+            mv.setViewName("top");
+            return mv;
+        }
+
+        //削除(複数)
+        @RequestMapping(value = "/deleteSome")
+        public ModelAndView deleteSome(
+                @RequestParam("code")int[] codes,
+                ModelAndView mv) {
+
+        	Optional<ToDo> record = todoRepository.findById(hashCode());
+        	ToDo todo  = record.get();
+        	int usersid  = todo.getUsersid();
+
+            for(var i =0; i < codes.length; i++) {
+            todoRepository.deleteById(i);
+            }
+
 
             //対象のタスクの取得
     		List<Point> pointList = null;

@@ -28,6 +28,18 @@ function deleteTask() {
 		}
 }
 
+function deleteSomeTask() {
+	var xxx = document.querySelectorAll(".check");
+		for(var i =0; i < xxx.length; i++){
+
+			if (xxx[i].checked == true) {
+			var code = xxx[i].value;
+			const codeArray = Array.form(code);
+			location.href = "/deleteSome?code=" + codeArray;
+			}
+		}
+}
+
 </script>
 
 </head>
